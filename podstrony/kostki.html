@@ -8,7 +8,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js"></script>
     <link rel="stylesheet" href="../css/kostki.css">
+
 </head>
 <body>
     <div class="main">
@@ -26,7 +30,7 @@
         <section>
             <div class="stawka">
                 <div class="stawka_div1">
-                    <form>
+                    <form onsubmit="startGry(); return false;">
                         Stawka <br><input type="number" id="stawka"><br><br><br>
                         <button type="submit">Postaw</button>
                     </form>
@@ -38,14 +42,17 @@
                 </div>
             </div>
             <div class="kostki">
-                <div class="suwak">
-                    <input type="range" id="zakres" min="1" max="6">
-                </div>
+                <div class="suwak-container">
+                    <p>Zakres: <span id="zakres-min"></span> - <span id="zakres-max"></span></p>
+                    <div id="suwak"></div>
+                </div>                
 
                 <div class="kostka1_png">
+                    losowana
                     <img src="../grafika/kostki/1.png" alt="kostka1">
                 </div>
                 <div class="kostka2_png">
+                    ostatnia
                     <img src="../grafika/kostki/2.png" alt="kostka2">
                 </div>
                 
@@ -68,5 +75,6 @@
         </footer>
     </div>
     <script src="../js/srodki.js"></script>
+    <script src="../js/kostki.js"></script>
 </body>
 </html>

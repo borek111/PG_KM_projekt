@@ -8,12 +8,14 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    height: 70vh;
+    height: 100vh;
+    background: rgb(51,60,64);
+    background: linear-gradient(90deg, rgba(51,60,64,1) 0%, rgba(41,48,51,1) 36%);
 }
 header {
     width: 100%;
     height: 15vh;
-    background-color: rgb(39, 44, 54);
+    background-color: #1c2631;
     color: white;
     position: relative;
     display: flex;
@@ -30,7 +32,6 @@ header {
 }
 nav{
     width: 20%;
-    background-color: rgb(47, 47, 61);
     height: 70vh;
 }
 nav>a{
@@ -41,14 +42,14 @@ nav>a{
     text-decoration: none;
 }
 .nav_link{
-    background-color: rgb(54, 58, 58);
+    background-color:#293033;
     width: 75%;
     height: 20%;
     margin:5px  auto;
     border-radius: 5px;
 }
 .nav_link>img{
-    margin-top:7px;
+    transform: translateY(75%);
     height:70px;
 }
 .nav_link:hover{
@@ -63,14 +64,13 @@ nav>a{
 section{
     display:flex;
     width: 80%;
-    background-color: rgb(70, 70, 65);
     height: 70vh;
     align-items: center;
     flex-wrap: wrap;
     
 }
 footer{
-    background-color: rgb(64, 65, 63);
+    background-color: #1c2631;
     height:15vh;
     width:100%;
     color: white;
@@ -80,11 +80,10 @@ footer{
     height:70vh;
     color:white;
     padding: 10px;
-    background-color: rgb(77, 75, 75);
 }
 .stawka_div1{
     width:70%;
-    background-color: rgb(50, 48, 48);
+    background-color: #1c2631;
     margin:0 auto;
     margin-top:50px;
     border-radius: 10px;
@@ -125,14 +124,14 @@ footer{
 }
 .zysk_nizsza{
     width:50%;
-    background-color: rgb(48, 48, 46);
+    background-color: #1c2631;
     height:auto;
     margin:2px;
     border-radius: 5px;
 }
 .zysk_wyzsza{
     width:50%;
-    background-color: rgb(48, 48, 46);
+    background-color: #1c2631;
     height:auto;
     margin:2px;
     border-radius: 5px;
@@ -146,7 +145,7 @@ footer{
     align-items: center;
 }
 .historia_kart_div1{
-    background-color:rgb(48, 48, 46) ;
+    background-color: #1c2631;
     width:90%;
     margin:0 auto;
     height:60%;

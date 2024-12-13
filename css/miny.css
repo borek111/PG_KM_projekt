@@ -1,0 +1,160 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Lexend", sans-serif;
+}
+
+.main {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    height: 70vh;
+}
+
+header {
+    width: 100%;
+    height: 15vh;
+    background-color: rgb(39, 44, 54);
+    color: white;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.srodki {
+    margin: 0;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    color:white;
+}
+
+nav {
+    width: 20%;
+    background-color: rgb(47, 47, 61);
+    height: 70vh;
+}
+
+nav > a {
+    color: white;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+
+.nav_link {
+    background-color: rgb(54, 58, 58);
+    width: 75%;
+    height: 20%;
+    margin:5px  auto;
+    border-radius: 5px;
+}
+.nav_link>img{
+    margin-top:7px;
+    height:70px;
+}
+.nav_link:hover{
+    background-color: rgb(90, 90, 90);
+    transition: background-color 0.3s; 
+}
+.gry {
+    color: white;
+    height: 10%;
+    text-align: center;
+}
+
+section {
+    display: flex;
+    width: 80%;
+    background-color: rgb(70, 70, 65);
+    height: 70vh;
+    align-items: center;
+}
+
+footer {
+    background-color: rgb(64, 65, 63);
+    height: 15vh;
+    width: 100%;
+    color: white;
+}
+
+.stawka {
+    width: 30%;
+    height: 70vh;
+    color: white;
+    padding: 10px;
+    background-color: rgb(77, 75, 75);
+}
+.stawka_div1{
+    width:70%;
+    background-color: rgb(50, 48, 48);
+    margin:0 auto;
+    margin-top:50px;
+    border-radius: 10px;
+    padding:10px;
+}
+
+.siatka {
+    display: grid; 
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 10px; 
+    width: 70%;
+    height: 70vh;
+    padding: 10px;
+}
+
+.siatka > div {
+    background-color: rgb(137, 126, 126);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 100%; 
+    height: 100%; 
+    transition: background-color 0.3s; 
+    border-radius: 5px;
+    margin:5px;
+}
+
+
+.siatka > div:hover {
+    background-color: rgb(163, 157, 157); 
+}
+
+button {
+    background-color: gray;
+    border: 4px solid rgb(50, 48, 48);
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: rgb(90, 90, 90);
+}
+
+input {
+    background-color: rgb(171, 171, 171);
+    border: 4px solid rgb(50, 48, 48);
+    border-radius: 10px;
+    padding: 5px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+input:focus {
+    outline: none;
+    border-color: rgb(100, 100, 100);
+}
+
+::placeholder {
+    color: white;
+}

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="PG_KM_3E">
+    <title>Salon gier</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/ruletka.css">
+</head>
+<body>
+    <div class="main">
+        <header>
+            <h1 class="naglowek">Salon Gier PG_KM_3E</h1>
+            <a href="srodki.html"><p class="srodki">Środki:</p></a>
+        </header>
+        <nav>
+            <p class="gry">GRY</p>
+            <a href="../index.html"><div class="nav_link"><img src="../grafika/indexlogo.png" alt="logo"></div></a>
+            <a href="miny.html"><div class="nav_link"><img src="../grafika/miny/minylogo.png" alt="miny"></div></a>
+            <a href="kostki.html"><div class="nav_link"><img src="../grafika/kostki/kostkilogo.png" alt="kostki"></div></a>
+            <a href="hilo.html"><div class="nav_link"><img src="../grafika/karty/kartylogo.png" alt="hilo"></div></a>
+        </nav>
+        <section>
+            <div class="ruletka">
+                <img src="../grafika/ruletka/ruletka.png" alt="" class="ruletka">
+            </div>
+            <div class="pola">
+                <table>
+                    <tr>
+                        <td rowspan="3" class="zielony">0 &nbsp;</td>
+                        <td class="czarny">3 &nbsp;</td>
+                        <td class="czerwony">6 &nbsp;</td>
+                        <td class="czarny">9 &nbsp;</td>
+                        <td class="czerwony">12</td>
+                        <td class="czarny">15</td>
+                        <td class="czerwony">18</td>
+                        <td class="czarny">21</td>
+                        <td class="czerwony">24</td>
+                        <td class="czarny">27</td>
+                        <td class="czerwony">30</td>
+                        <td class="czarny">33</td>
+                        <td class="czerwony">36</td>
+                    </tr>
+                    <tr>
+                        <td class="czerwony">2</td>
+                        <td class="czarny">5</td>
+                        <td class="czerwony">8</td>
+                        <td class="czarny">11</td>
+                        <td class="czerwony">14</td>
+                        <td class="czarny">17</td>
+                        <td class="czerwony">20</td>
+                        <td class="czarny">23</td>
+                        <td class="czerwony">26</td>
+                        <td class="czarny">29</td>
+                        <td class="czerwony">32</td>
+                        <td class="czarny">35</td>
+                    </tr>
+                    <tr>
+                        <td class="czarny">1</td>
+                        <td class="czerwony">4</td>
+                        <td class="czarny">7</td>
+                        <td class="czerwony">10</td>
+                        <td class="czarny">13</td>
+                        <td class="czerwony">16</td>
+                        <td class="czarny">19</td>
+                        <td class="czerwony">22</td>
+                        <td class="czarny">25</td>
+                        <td class="czerwony">28</td>
+                        <td class="czarny">31</td>
+                        <td class="czerwony">34</td>
+                    </tr>
+                    <tr>
+
+                        <td colspan="6" class="szary">even</td>
+                        <td class="czerwony"></td>
+                        <td class="czarny"></td>
+                        <td colspan="6" class="szary">odd</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="stawka">
+                <div class="stawka_2">
+                    stawka
+                    <form class="formStawka">
+                        <button type="submit" id="1">1</button>
+                        <button type="submit" id="2">2</button>
+                        <button type="submit" id="3">3</button>
+                        <button type="submit" id="4">4</button>
+                        <button type="submit" id="5">5</button>
+                    </form>
+                </div>
+                
+            </div>
+        </section>
+        <footer>
+            Ostatnie gry:
+            <div>
+                TO DO w php
+            </div>
+        </footer>
+    </div>
+    <script src="../js/srodki.js"></script>
+</body>
+</html>

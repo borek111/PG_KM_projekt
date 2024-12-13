@@ -1,0 +1,117 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Lexend", sans-serif;
+}
+
+.srodki_section {
+    width: 30%;
+    height: 70vh;
+    color: white;
+    padding: 10px;
+    background-color: rgb(77, 75, 75);
+    margin: 0 auto;
+}
+.srodki_section_div1{
+    width:70%;
+    background-color: rgb(50, 48, 48);
+    margin:0 auto;
+    margin-top:50px;
+    border-radius: 10px;
+    padding:10px;
+}
+
+
+.main {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    height: 70vh;
+}
+
+header {
+    width: 100%;
+    height: 15vh;
+    background-color: rgb(39, 44, 54);
+    color: white;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.srodki {
+    margin: 0;
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+nav{
+    width: 20%;
+    background-color: rgb(47, 47, 61);
+    height: 70vh;
+}
+nav>a{
+    color:white;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+}
+.nav_link{
+    background-color: rgb(54, 58, 58);
+    width: 75%;
+    height: 15%;
+    margin:5px  auto;
+    border-radius: 5px;
+}
+.nav_link>img{
+    margin-top:7px;
+    height:56px;
+}
+.nav_link:hover{
+    background-color: rgb(90, 90, 90);
+    transition: background-color 0.3s; 
+}
+.gry{
+    color:white;
+    height: 10%;
+    text-align: center;
+}
+section{
+    display:flex;
+    width: 80%;
+    background-color: rgb(70, 70, 65);
+    height: 70vh;
+    align-items: center;
+    flex-wrap: wrap;
+    
+}
+footer{
+    background-color: rgb(64, 65, 63);
+    height:15vh;
+    width:100%;
+    color: white;
+}
+
+button{
+    background-color: gray;
+    border:4px solid rgb(50, 48, 48);
+    border-radius:10px;
+    padding:10px;
+    color:white;
+    width:195px;
+}
+input{
+    background-color: rgb(171, 171, 171);
+    border:4px solid rgb(50, 48, 48);
+    border-radius:10px;
+    padding:5px;
+    width:195px;
+}
+button:hover {
+    background-color: rgb(90, 90, 90);
+    transition: background-color 0.3s; 
+}

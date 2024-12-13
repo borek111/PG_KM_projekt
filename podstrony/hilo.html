@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="PG_KM_3E">
+    <title>Salon gier</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/hilo.css">
+</head>
+<body>
+    <div class="main">
+        <header>
+            <h1 class="naglowek">Salon Gier PG_KM_3E</h1>
+            <a href="srodki.html"><p class="srodki">Środki:</p></a>
+        </header>
+        <nav>
+            <p class="gry">GRY</p>
+            <a href="../index.html"><div class="nav_link"><img src="../grafika/indexlogo.png" alt="logo"></div></a>
+            <a href="miny.html"><div class="nav_link"><img src="../grafika/miny/minylogo.png" alt="bomba"></div></a>
+            <a href="ruletka.html"><div class="nav_link"><img src="../grafika/ruletka/ruletkalogo.png" alt="ruletka"></div></a>
+            <a href="kostki.html"><div class="nav_link"><img src="../grafika/kostki/kostkilogo.png" alt="kostki"></div></a>
+        </nav>
+        <section>
+            <div class="stawka">
+                <div class="stawka_div1">
+                    <form>
+                        Stawka <br><input type="number" id="stawka"><br><br><br>
+                        <button type="submit">Postaw</button>
+                    </form>
+                    <br><br>
+                    <div id="wyniki" class="wyniki">
+                        <hr><br><br>
+                        <p id="wygrana">Wygrana: </p><br>
+                    </div>
+                </div>
+            </div>
+            <div class="hilo">
+                <div class="karty">
+                    <img src="../grafika/karty/ace_of_spades.png" alt="karta">
+                </div>
+                <div class="info">
+                    <div class="zysk_wyzsza">
+                        Zysk na wyższej <br>
+                    </div>
+                    <div class="zysk_nizsza">
+                        Zysk na niższej <br>
+                    </div>
+                </div>
+                <div class="buttony">
+                    <button>Wyższa lub taka sama</button>
+                    <button>Niższa lub taka sama</button>
+                    <button>Pomiń kartę</button>
+                </div>
+                <div class="historia_kart">
+                    <p>Ostatnie karty</p><br>
+                    <div class="historia_kart_div1">
+                        to do
+                        <div></div>
+                    </div>
+                    
+                </div>
+
+            </div>
+        </section>
+        <footer>
+            Ostatnie gry:
+            <div>
+                TO DO w php
+            </div>
+        </footer>
+    </div>
+    <script src="../js/srodki.js"></script>
+</body>
+</html>

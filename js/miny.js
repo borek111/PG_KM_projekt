@@ -82,8 +82,8 @@ function odkryjPole(index) {
         }
 
         if (moznaMnozyc) {
-            const mnoznik = getMnoznik(); 
-            kwotaZwrotu = stawka * Math.pow(1.1, odkrytePola) * mnoznik;
+            const mnoznik = getMnoznik();
+            kwotaZwrotu *= 1.1 * mnoznik; // Uwzględniamy liczbę min przy każdym kroku
             document.getElementById("kwota-zwrotu").textContent = kwotaZwrotu.toFixed(2);
         }
     }

@@ -62,14 +62,17 @@ nav>a{
     text-decoration: none;
 }
 .nav_link{
-    background-color:#293033;
+    background-color: #293033;
     width: 75%;
     height: 15.9%;
-    margin:5px  auto;
+    margin: 5px auto;
     border-radius: 5px;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
 }
 .nav_link>img{
-    transform: translateY(80%);
+    transform: none;
     height:56px;
 }
 .nav_link:hover{

@@ -46,15 +46,18 @@ nav>a{
     text-decoration: none;
 }
 .nav_link{
-    background-color:#293033;
+    background-color: #293033;
     width: 75%;
     height: 20%;
-    margin:5px  auto;
+    margin: 5px auto;
     border-radius: 5px;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
 }
 .nav_link>img{
     height:70px;
-    transform: translateY(75%);
+    transform: none;
 }
 .nav_link:hover{
     background-color: rgb(90, 90, 90);

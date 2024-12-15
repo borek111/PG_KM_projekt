@@ -155,8 +155,15 @@ function wyborStawka(wartosc) {
         graRozpoczeta = true;
         alert("Gra rozpoczęta!");
     }
-    wybranaStawka = Number(wartosc);
-    alert("stawka: " + wybranaStawka);
+    
+    let srodki = getSrodki();  
+    if (wartosc > srodki) {  
+        alert("Nie masz wystarczających środków!");
+        return;
+    }
+
+    wybranaStawka = Number(wartosc);  // Przypisujemy wartość stawki
+    alert("Stawka: " + wybranaStawka);
 }
 
 function setWybor(wartosc) {
@@ -168,13 +175,14 @@ function setWybor(wartosc) {
         alert("Najpierw wybierz stawkę");
     } else {
         wybor = wartosc;
-        let srodki = getSrodki();
-        srodki -= wybranaStawka;
-        setSrodki(srodki);
-        updateSrodkiWyswietlane();
+        let srodki = getSrodki(); 
+        srodki -= wybranaStawka;  
+        setSrodki(srodki);         
+        updateSrodkiWyswietlane(); 
         alert(wybor);
     }
 }
+
 
 function zwrotPieniedzy() {
     let srodki = getSrodki();

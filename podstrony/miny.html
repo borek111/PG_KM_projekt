@@ -38,14 +38,12 @@
                         <button type="submit">Postaw</button>
                     </form>
                    <hr style="margin-top: 10px; margin-bottom: 10px;">
-                   <form onsubmit="zwrotPieniedzy(); return false;">
+                   <form onsubmit="zwrotPieniedzy(event)">
                     <p>Zwrot pieniędzy:</p>
                     <p>Kwota do zwrotu: <span id="kwota-zwrotu">0</span></p>
                     <button type="submit">Zwróć pieniądze</button>
-                </form>
+                    </form>
                 </div>
-               
-            
             </div>
             <div class="siatka" id="siatka"></div>
         </section>

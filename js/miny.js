@@ -42,7 +42,7 @@ function startGry() {
 }
 
 function getMnoznik() {
-    return 1 + liczbaMin * 0.05; 
+    return 1 + liczbaMin * 0.025; //może jeszcze zmienię
 }
 
 // Funkcja do odkrywania pola
@@ -83,14 +83,15 @@ function odkryjPole(index) {
 
         if (moznaMnozyc) {
             const mnoznik = getMnoznik();
-            kwotaZwrotu *= 1.1 * mnoznik; // Uwzględniamy liczbę min przy każdym kroku
+            kwotaZwrotu *= 1.08 * mnoznik;
             document.getElementById("kwota-zwrotu").textContent = kwotaZwrotu.toFixed(2);
         }
     }
 }
 
 // Funkcja zwrotu pieniędzy
-function zwrotPieniedzy() {
+function zwrotPieniedzy(event) {
+    event.preventDefault();
     if (!graRozpoczeta) {
         alert("Gra nie została rozpoczęta. Nie możesz zwrócić pieniędzy.");
         return;
@@ -99,7 +100,7 @@ function zwrotPieniedzy() {
     let srodki = getSrodki();
     srodki += kwotaZwrotu;
     setSrodki(srodki); 
-    updateSrodkiDisplay(); 
+    updateSrodkiWyswietlane(); 
     alert(`Zwrócono pieniądze! Kwota: ${kwotaZwrotu.toFixed(2)} zł`);
     koniecGry(); 
 }

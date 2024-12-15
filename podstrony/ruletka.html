@@ -25,72 +25,25 @@
             <a href="hilo.html"><div class="nav_link"><img src="../grafika/karty/kartylogo.png" alt="hilo"></div></a>
         </nav>
         <section>
+        
             <div class="ruletka">
-                <img src="../grafika/ruletka/ruletka.gif" alt="" class="ruletka"> 
+                <p id="czas_p">czas: </p>
+                <img src="../grafika/ruletka/ruletka.gif" alt="" class="ruletka" id="ruletka_gif"> 
             </div>
             <div class="pola">
-                <table>
-                    <tr>
-                        <td rowspan="3" class="zielony">0 &nbsp;</td>
-                        <td class="czarny">3 &nbsp;</td>
-                        <td class="czerwony">6 &nbsp;</td>
-                        <td class="czarny">9 &nbsp;</td>
-                        <td class="czerwony">12</td>
-                        <td class="czarny">15</td>
-                        <td class="czerwony">18</td>
-                        <td class="czarny">21</td>
-                        <td class="czerwony">24</td>
-                        <td class="czarny">27</td>
-                        <td class="czerwony">30</td>
-                        <td class="czarny">33</td>
-                        <td class="czerwony">36</td>
-                    </tr>
-                    <tr>
-                        <td class="czerwony">2</td>
-                        <td class="czarny">5</td>
-                        <td class="czerwony">8</td>
-                        <td class="czarny">11</td>
-                        <td class="czerwony">14</td>
-                        <td class="czarny">17</td>
-                        <td class="czerwony">20</td>
-                        <td class="czarny">23</td>
-                        <td class="czerwony">26</td>
-                        <td class="czarny">29</td>
-                        <td class="czerwony">32</td>
-                        <td class="czarny">35</td>
-                    </tr>
-                    <tr>
-                        <td class="czarny">1</td>
-                        <td class="czerwony">4</td>
-                        <td class="czarny">7</td>
-                        <td class="czerwony">10</td>
-                        <td class="czarny">13</td>
-                        <td class="czerwony">16</td>
-                        <td class="czarny">19</td>
-                        <td class="czerwony">22</td>
-                        <td class="czarny">25</td>
-                        <td class="czerwony">28</td>
-                        <td class="czarny">31</td>
-                        <td class="czerwony">34</td>
-                    </tr>
-                    <tr>
 
-                        <td colspan="6" class="szary">even</td>
-                        <td class="czerwony"></td>
-                        <td class="czarny"></td>
-                        <td colspan="6" class="szary">odd</td>
-                    </tr>
+                <table id="tabela">
                 </table>
             </div>
             <div class="stawka">
                 <div class="stawka_2">
                     stawka
                     <form class="formStawka">
-                        <button type="submit" id="1">1</button>
-                        <button type="submit" id="2">2</button>
-                        <button type="submit" id="3">3</button>
-                        <button type="submit" id="4">4</button>
-                        <button type="submit" id="5">5</button>
+                        <button type="submit" id="button1" value="1" onclick="wyborStawka('1');return false;">1</button>
+                        <button type="submit" id="button10" value="10" onclick="wyborStawka('10');return false;">10</button>
+                        <button type="submit" id="button50" value="50" onclick="wyborStawka('50');return false;">50</button>
+                        <button type="submit" id="button100" value="100" onclick="wyborStawka('100');return false;">100</button>
+                        <button type="submit" id="button500" value="500" onclick="wyborStawka('500');return false;">500</button>
                     </form>
                 </div>
                 

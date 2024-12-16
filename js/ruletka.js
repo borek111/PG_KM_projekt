@@ -122,7 +122,7 @@ function dodajTabele() {
     const trParzystaNieParzysta = document.createElement('tr');
     
     const tdParzysta = document.createElement('td');
-    tdParzysta.colSpan = 4;
+    tdParzysta.colSpan = 5;
     tdParzysta.textContent = "parzysta";
     tdParzysta.classList.add("parzysta");
     tdParzysta.onclick = () => setWybor("parzysta");
@@ -136,13 +136,16 @@ function dodajTabele() {
     tdCzerwony.onclick = () => setWybor("czerwony");
 
     const tdNieParzysta = document.createElement('td');
-    tdNieParzysta.colSpan = 4;
+    tdNieParzysta.colSpan = 5;
     tdNieParzysta.textContent = "nieparzysta";
     tdNieParzysta.classList.add("nieparzysta");
     tdNieParzysta.onclick = () => setWybor("nieparzysta");
 
+    const tdPuste1 = document.createElement('td');
+    tdPuste1.colSpan = 1;
     trParzystaNieParzysta.appendChild(tdParzysta);
     trParzystaNieParzysta.appendChild(tdCzarny);
+    trParzystaNieParzysta.appendChild(tdPuste1);
     trParzystaNieParzysta.appendChild(tdCzerwony);
     trParzystaNieParzysta.appendChild(tdNieParzysta);
     tabela.appendChild(trParzystaNieParzysta);

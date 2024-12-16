@@ -14,6 +14,8 @@ var mnoznik_text = document.getElementById("mnoznik");
 var szanse_text = document.getElementById("szanse");
 var wygrana_text = document.getElementById("wygrana");
 var wygrana;
+let srodki = getSrodki();
+
 
 // Suwak z jQuery
 $(function() {
@@ -50,23 +52,14 @@ function aktualizujZakres(zakres) {
     zakresMax1 = zakres[1];
 }
 
-function startGry() {
-    mnoznik = 1;
-    aktualizujZakres($("#suwak").slider("values"));
-    Losowanie();
-    UstawKostke2();
-    UstawKostke1();
-    sprawdzWynik();
-
+function startGry() { 
     stawka = parseInt(document.getElementById("stawka").value);
     console.log("Aktualna stawka: " + stawka);
 
-    if (isNaN(stawka) || stawka <= 0) {
+    if(isNaN(stawka) || stawka <= 0) {
         alert("Proszę podać poprawną stawkę.");
         return;
     }
-
-    let srodki = getSrodki(); 
     console.log("Aktualne środki: " + srodki);
 
     if (stawka > srodki) {
@@ -74,34 +67,45 @@ function startGry() {
         return;
     }
 
+    mnoznik = 1;
+    Losowanie();
+    UstawKostke2();
+    UstawKostke1();
+    sprawdzWynik();
+
     srodki -= stawka; 
-    setSrodki(srodki); 
-    updateSrodkiWyswietlane(); 
+    setSrodki(srodki);  
+    updateSrodkiWyswietlane();  
 }
+
 
 function zwrotPieniedzy() {
     if (los >= zakresMin1 && los <= zakresMax1) {
         stawka = parseInt(document.getElementById("stawka").value);
-        console.log("stawka: " + stawka);
-        console.log("mnożnik: " + mnoznik);
-        
-        let srodki = getSrodki();
+
+        obliczMnoznik();
         wygrana = stawka * mnoznik;
+        console.log("Wygrana: " + wygrana);
+        
+
         srodki += wygrana;
+        console.log("Nowe środki po wygranej: " + srodki);
+
         setSrodki(srodki); 
-        updateSrodkiWyswietlane();
+        updateSrodkiWyswietlane(); 
         wygrana_text.innerHTML = "Ostatnia wygrana: " + wygrana.toFixed(2);
     } else {
         wygrana_text.innerHTML = "Niestety przegrałeś :(";
     }
 }
 
+
 function getRoznica() {
     roznica = zakresMax1 - zakresMin1;
     return roznica;
 }
 
-function obliczMnoznik(zakres) {
+function obliczMnoznik() {
     getRoznica();
     switch (roznica) {
         case 0: mnoznik = 3; break;
@@ -116,7 +120,7 @@ function obliczMnoznik(zakres) {
     document.getElementById("mnoznik").innerHTML = "Mnożnik:<br>" + mnoznik;
 }
 
-function obliczSzanse(zakres) {
+function obliczSzanse() {
     getRoznica();
 
     switch (roznica) {
@@ -146,11 +150,9 @@ function UstawKostke2() {
 }
 
 function sprawdzWynik() {
-    console.log(zakresMin1, zakresMax1);
-    console.log(los);
+    //console.log(zakresMin1, zakresMax1);
+    //console.log(los);
     if (los >= zakresMin1 && los <= zakresMax1) {
         zwrotPieniedzy(); 
-    } else {
-        wygrana_text.innerHTML = "Niestety przegrałeś :(";
     }
 }

@@ -64,9 +64,7 @@ function Czas() {
     } else if (czas == 0 && czasNaWynik > 0) {
         ruletka_gif.src = "../grafika/ruletka/kulka/k" + losSTRING + ".png"; 
         czasNaWynik -= 1;
-        document.getElementById('czas_p').innerHTML = "Czas na wynik: " + czasNaWynik + " s";
-
-        console.log(losSTRING + " " + kolor);  // Wyświetlenie numeru i koloru w konsoli
+        document.getElementById('czas_p').innerHTML = "Czas do następnego losowania: " + czasNaWynik + " s";
         if (!wynikSprawdzony) 
         {
             sprawdzWyniki(); 
@@ -90,12 +88,12 @@ function resetRound() {
     graZakoncza = false;
     wybranaStawka = null;
     wybor = null;
-    clearInterval(timerId);  // Zatrzymujemy aktualny timer
+    clearInterval(timerId);  
 }
 
 function startRound() {
     Losowanie();
-    timerId = setInterval(Czas, 1000);  // Ustawiamy nowy timer
+    timerId = setInterval(Czas, 1000);
 }
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -162,7 +160,7 @@ function wyborStawka(wartosc) {
         return;
     }
 
-    wybranaStawka = Number(wartosc);  // Przypisujemy wartość stawki
+    wybranaStawka = Number(wartosc); 
     alert("Stawka: " + wybranaStawka);
 }
 
@@ -183,17 +181,7 @@ function setWybor(wartosc) {
     }
 }
 
-
-function zwrotPieniedzy() {
-    let srodki = getSrodki();
-    srodki += wybranaStawka;
-    setSrodki(srodki); 
-    updateSrodkiWyswietlane(); 
-    alert(`Zwrócono pieniądze! Kwota: ${wygrana.toFixed(2)} zł`);
-}
-
 function sprawdzWyniki() {
-    console.log("Sprawdzam wyniki...");
     if (!graRozpoczeta) {
         alert("Najpierw wybierz stawkę i rozpocznij grę!");
         return;
@@ -224,7 +212,6 @@ function sprawdzWyniki() {
     // Brak trafienia
     else {
         wynik += `\nNie trafiłeś.`;
-        // Resetowanie wybranej stawki i zakładu po przegranej
         wybranaStawka = null;
         wybor = null;
     }
@@ -234,7 +221,7 @@ function sprawdzWyniki() {
         srodki += wygrana;
         setSrodki(srodki);
         updateSrodkiWyswietlane();
-        wynik += `\nGratulacje! Wygrałeś ${wygrana.toFixed(2)} zł`;
+        wynik += `\nGratulacje! Wygrałeś ${wygrana.toFixed(2)}`;
         wybranaStawka = null;
         wybor = null;
     }

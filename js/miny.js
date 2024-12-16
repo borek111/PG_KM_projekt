@@ -42,7 +42,7 @@ function startGry() {
 }
 
 function getMnoznik() {
-    return 1 + liczbaMin * 0.025; //może jeszcze zmienię
+    return 1 + liczbaMin * 0.035; //może jeszcze zmienię
 }
 
 // Funkcja do odkrywania pola
@@ -101,7 +101,7 @@ function zwrotPieniedzy(event) {
     srodki += kwotaZwrotu;
     setSrodki(srodki); 
     updateSrodkiWyswietlane(); 
-    alert(`Zwrócono pieniądze! Kwota: ${kwotaZwrotu.toFixed(2)} zł`);
+    alert(`Zwrócono pieniądze! Kwota: ${kwotaZwrotu.toFixed(2)}`);
     koniecGry(); 
 }
 

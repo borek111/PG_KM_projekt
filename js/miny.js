@@ -11,7 +11,7 @@ function startGry() {
         return; 
     }
 
-    stawka = parseInt(document.getElementById("stawka").value);
+    stawka = parseFloat(document.getElementById("stawka").value);
     const miny = parseInt(document.getElementById("miny").value);
 
     if (isNaN(stawka) || stawka <= 0 || isNaN(miny) || miny <= 0 || miny > 24) {

@@ -2,7 +2,7 @@ function zmienSrodki(event) {
     event.preventDefault(); // Zapobiega przeładowaniu strony po wysłaniu formularza
     
     // Pobieramy nową wartość środków z formularza
-    var noweSrodki = parseInt(document.getElementById("nowe-srodki").value);
+    var noweSrodki = parseFloat(document.getElementById("nowe-srodki").value);
 
     // Sprawdzamy, czy wartość jest poprawna
     if (isNaN(noweSrodki) || noweSrodki <= 0) {
@@ -11,7 +11,7 @@ function zmienSrodki(event) {
     }
     setSrodki(noweSrodki);
     updateSrodkiWyswietlane();
-    alert("Dodano");
+    alert("Zmeniono wartość środków.");
 }
 
 function setSrodki(srodki) {
@@ -20,11 +20,12 @@ function setSrodki(srodki) {
 
 function updateSrodkiWyswietlane() {
     var srodki = getSrodki();
-    document.querySelector(".srodki").textContent = `Środki: ${srodki}`;
+    document.querySelector(".srodki").textContent = `Środki: ${srodki.toFixed(2)}`;
 }
 
+
 function getSrodki() {
-    return parseInt(sessionStorage.getItem("srodki") || "100");
+    return parseFloat(sessionStorage.getItem("srodki") || "100");
 }
 
 if(document.getElementById("zmiana-srodkow-formularz"))

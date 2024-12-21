@@ -53,7 +53,7 @@ function aktualizujZakres(zakres) {
 }
 
 function startGry() { 
-    stawka = parseInt(document.getElementById("stawka").value);
+    stawka = parseFloat(document.getElementById("stawka").value);
     console.log("Aktualna stawka: " + stawka);
 
     if(isNaN(stawka) || stawka <= 0) {
@@ -81,17 +81,14 @@ function startGry() {
 
 function zwrotPieniedzy() {
     if (los >= zakresMin1 && los <= zakresMax1) {
-        stawka = parseInt(document.getElementById("stawka").value);
+        stawka = parseFloat(document.getElementById("stawka").value);
 
         obliczMnoznik();
         wygrana = stawka * mnoznik;
         console.log("Wygrana: " + wygrana);
-        
 
         srodki += wygrana;
-        console.log("Nowe środki po wygranej: " + srodki);
-
-        setSrodki(srodki); 
+        setSrodki(srodki);  
         updateSrodkiWyswietlane(); 
         wygrana_text.innerHTML = "Ostatnia wygrana: " + wygrana.toFixed(2);
     } else {

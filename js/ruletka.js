@@ -162,7 +162,7 @@ function wyborStawka(wartosc) {
         alert("Nie masz wystarczających środków!");
         return;
     }
-
+    zablokujPrzyciski();
     wybranaStawka = Number(wartosc); 
     alert("Stawka: " + wybranaStawka);
 }

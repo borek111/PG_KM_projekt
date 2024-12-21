@@ -15,7 +15,7 @@ function startGry() {
         return; 
     }
     Losowanie()
-    stawka = parseInt(document.getElementById("stawka").value);
+    stawka = parseFloat(document.getElementById("stawka").value);
 
     if (isNaN(stawka) || stawka <= 0 ) {
         alert("Proszę podać poprawną stawkę.");

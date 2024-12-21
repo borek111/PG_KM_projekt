@@ -52,6 +52,12 @@
             </div>
         </footer>
     </div>
+    <script>
+        if (!sessionStorage.getItem('alertShown')) {
+            alert("Jest to projekt szkolny, który powstał wyłącznie w celach edukacyjnych. Strona ta nie ma na celu propagowania ani promowania hazardu w jakiejkolwiek formie. Treści zawarte na tej stronie mają charakter wyłącznie dydaktyczny i służą rozwijaniu umiejętności programistycznych oraz projektowych.");
+            sessionStorage.setItem('alertShown', 'true');
+        }
+    </script>
     <script src="js/srodki.js"></script>
 </body>
 </html>

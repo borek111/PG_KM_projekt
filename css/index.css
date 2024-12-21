@@ -34,63 +34,111 @@ header {
     color: white;
 }
 
-nav{
+nav {
     width: 20%;
     height: 70vh;
 }
-nav>a{
-    color:white;
+
+nav > a {
+    color: white;
     text-align: center;
     align-items: center;
     justify-content: center;
     text-decoration: none;
 }
-.nav_link{
+
+.nav_link {
     background-color: #293033;
     width: 75%;
     height: 20%;
     margin: 5px auto;
     border-radius: 5px;
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-.nav_link>img{
-    height:70px;
+
+.nav_link > img {
+    height: 70px;
     transform: none;
 }
-.nav_link:hover{
+
+.nav_link:hover {
     background-color: rgb(90, 90, 90);
-    transition: background-color 0.3s; 
+    transition: background-color 0.3s;
 }
-.gry{
-    color:white;
+
+.gry {
+    color: white;
     height: 10%;
     text-align: center;
 }
-section{
-    display:flex;
-    width: 80%;
-    height: 70vh;
-    align-items: center;
-}
-footer{
+footer {
     background-color: #1c2631;
-    height:15vh;
-    width:100%;
+    height: 15vh;
+    width: 100%;
     color: white;
 }
-.text{
-    width: 50%;
-    text-align: center;
-    color:white;
-}
-.obraz{
-    width: 50%;
-    overflow: hidden;
+
+section {
+    display: flex;
+    width: 80%;
     height: 70vh;
 }
-.ziutek{
+
+.lewo {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 50%;
+    text-align: center;
+    color: white;
+}
+
+.prawo {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+.ziutek {
+    width: 80%;
     object-fit: cover;
-    width: 100%;
+}
+
+.poradnik {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%; 
+}
+
+.poradnik_link {
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; 
+}
+
+.poradnik a {
+    width: 100%;  
+    height: 100%; 
+}
+
+.poradnik > .poradnik_link > a > img {
+    width: 100%; 
+    height: 100%;
+    object-fit: cover;
+    cursor: pointer;
 }

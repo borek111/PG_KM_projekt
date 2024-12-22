@@ -25,8 +25,9 @@ function updateSrodkiWyswietlane() {
 
 
 function getSrodki() {
-    return parseFloat(sessionStorage.getItem("srodki") || "100");
+    return Math.round(parseFloat(sessionStorage.getItem("srodki") || "100") * 100) / 100;
 }
+
 
 if(document.getElementById("zmiana-srodkow-formularz"))
 {

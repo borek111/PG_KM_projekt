@@ -15,6 +15,7 @@ var szanse_text = document.getElementById("szanse");
 var wygrana_text = document.getElementById("wygrana");
 var wygrana;
 let srodki = getSrodki();
+var iloscWygranych = 1;
 
 
 // Suwak z jQuery
@@ -139,10 +140,12 @@ function UstawKostke2() {
 function sprawdzWynik() {
     if (los >= zakresMin1 && los <= zakresMax1) {
         zwrotPieniedzy(); 
-        wygrana_text.innerHTML = "Ostatnia wygrana: " + wygrana.toFixed(2);
+        wygrana_text.innerHTML = "Ostatnia wygrana: " + wygrana.toFixed(2) + " (" + iloscWygranych+"x)";
+        iloscWygranych+=1;
     }
     else
     {
-        wygrana_text.innerHTML = "Niestety przegrałeś :(";
+        wygrana_text.innerHTML = "Niestety przegrałeś :(";  
+        iloscWygranych = 1;
     }
 }

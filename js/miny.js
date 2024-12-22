@@ -11,7 +11,7 @@ function startGry() {
         return; 
     }
 
-    stawka = parseFloat(document.getElementById("stawka").value);
+    stawka = parseFloat(document.getElementById("stawka").value).toFixed(2);
     const miny = parseInt(document.getElementById("miny").value);
 
     if (isNaN(stawka) || stawka <= 0 || isNaN(miny) || miny <= 0 || miny > 24) {
@@ -20,9 +20,6 @@ function startGry() {
     }
 
     let srodki = getSrodki();
-    console.log("stawka:", stawka, typeof stawka);
-    console.log("srodki:", srodki, typeof srodki);
-
     if (stawka > srodki) {
         showToast("Nie masz wystarczających środków!", "linear-gradient(to right, #ff5f6d, #ffc3a0)");
         return;
@@ -41,7 +38,7 @@ function startGry() {
 
     document.querySelector('button[type="submit"]').disabled = true;
 
-    document.getElementById("kwota-zwrotu").textContent = kwotaZwrotu.toFixed(2);
+    document.getElementById("kwota-zwrotu").textContent = kwotaZwrotu;
 }
 
 function getMnoznik() {

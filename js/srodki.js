@@ -6,7 +6,7 @@ function zmienSrodki(event) {
 
     // Sprawdzamy, czy wartość jest poprawna
     if (isNaN(noweSrodki) || noweSrodki <= 0) {
-        alert("Proszę podać poprawną wartość środków.");
+        showToast("Proszę podać poprawną wartość środków.", "linear-gradient(to right, #ff5f6d, #ffc3a0)");
         return;
     }
     setSrodki(noweSrodki);
@@ -25,8 +25,9 @@ function updateSrodkiWyswietlane() {
 
 
 function getSrodki() {
-    return Math.round(parseFloat(sessionStorage.getItem("srodki") || "100") * 100) / 100;
+    return +(parseFloat(sessionStorage.getItem("srodki") || "100")).toFixed(2);
 }
+
 
 
 if(document.getElementById("zmiana-srodkow-formularz"))

@@ -10,13 +10,6 @@ const kolory = {
     "czarny": ["2", "4", "6", "8", "10", "11", "13", "15", "17", "20", "22", "24", "26", "28", "29", "31", "33", "35"]
 };
 
-function getColor(value) {
-    if (value === "0") return "zielony";
-    if (kolory.czerwony.includes(value)) return "czerwony";
-    if (kolory.czarny.includes(value)) return "czarny";
-    return "";
-}
-
 var wybor;
 var graRozpoczeta = false;  
 var wybranaStawka;
@@ -30,6 +23,14 @@ var timerId;
 var losINT;
 var losSTRING;
 var kolor;
+
+function getColor(value) {
+    if (value === "0") return "zielony";
+    if (kolory.czerwony.includes(value)) return "czerwony";
+    if (kolory.czarny.includes(value)) return "czarny";
+    return "";
+}
+
 
 function Losowanie() {
     losINT = Math.floor(Math.random() * 37);
@@ -52,20 +53,6 @@ function odblokujPrzyciski() {
     });
 }
 
-function showToast(text, backgroundColor) {
-    Toastify({
-        text: text,
-        duration: 5000,  
-        style: {
-            background: backgroundColor
-        },
-        gravity: "top",  
-        position: "center",  
-        onClick: function () {
-            this.hideToast();  
-        }
-    }).showToast();
-}
 
 
 function Czas() {
@@ -173,28 +160,27 @@ function wyborStawka(wartosc) {
     
     let srodki = getSrodki();  
     if (wartosc > srodki) {  
-        alert("Nie masz wystarczających środków!");
+        showToast("nie masz wystarczających srodków", "linear-gradient(to right, #ff5f6d, #ffc3a0)");
         return;
     }
     zablokujPrzyciski();
     wybranaStawka = Number(wartosc); 
-    alert("Stawka: " + wybranaStawka);
 }
 
 function setWybor(wartosc) {
     if (!graRozpoczeta) {
-        alert("Najpierw wybierz stawkę!");
+        showToast("najpierw wybierz stawkę", "linear-gradient(to right, #ff5f6d, #ffc3a0)");
         return;
     }
     if (wybranaStawka == null) {
-        alert("Najpierw wybierz stawkę");
+         showToast("najpierw wybierz stawkę", "linear-gradient(to right, #ff5f6d, #ffc3a0)");
     } else {
         wybor = wartosc;
         let srodki = getSrodki(); 
         srodki -= wybranaStawka;  
         setSrodki(srodki);         
-        updateSrodkiWyswietlane(); 
-        alert(wybor);
+        updateSrodkiWyswietlane();
+        showToast(("postawiano "+wybranaStawka + " na " + wybor), "linear-gradient(to right, #00b09b, #96c93d)"); 
     }
 }
 

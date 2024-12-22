@@ -15,13 +15,16 @@ function startGry() {
     const miny = parseInt(document.getElementById("miny").value);
 
     if (isNaN(stawka) || stawka <= 0 || isNaN(miny) || miny <= 0 || miny > 24) {
-        alert("Proszę podać poprawną stawkę i ilość min (1-24).");
+        showToast("Proszę podać poprawną stawkę i ilość min (1-24).", "linear-gradient(to right, #ff5f6d, #ffc3a0)");
         return;
     }
 
     let srodki = getSrodki();
+    console.log("stawka:", stawka, typeof stawka);
+    console.log("srodki:", srodki, typeof srodki);
+
     if (stawka > srodki) {
-        alert("Nie masz wystarczających środków!");
+        showToast("Nie masz wystarczających środków!", "linear-gradient(to right, #ff5f6d, #ffc3a0)");
         return;
     }
 
@@ -48,7 +51,7 @@ function getMnoznik() {
 // Funkcja do odkrywania pola
 function odkryjPole(index) {
     if (!graRozpoczeta) {
-        alert("Proszę rozpocząć grę przed kliknięciem na pola.");
+        showToast("Proszę rozpocząć grę przed kliknięciem na pola.", "linear-gradient(to right, #ff5f6d, #ffc3a0)");
         return;
     }
 
@@ -67,7 +70,7 @@ function odkryjPole(index) {
         pole.style.backgroundSize = "75px";
         pole.style.backgroundRepeat = "no-repeat";
         pole.style.backgroundPosition = "center";
-        alert("Boom! Trafiłeś na minę!");
+        showToast("Boom! Trafiłeś na minę!", "linear-gradient(to right, #ff5f6d, #ffc3a0)");
         pokazMiny();
         koniecGry();
     } else {
@@ -93,7 +96,7 @@ function odkryjPole(index) {
 function zwrotPieniedzy(event) {
     event.preventDefault();
     if (!graRozpoczeta) {
-        alert("Gra nie została rozpoczęta. Nie możesz zwrócić pieniędzy.");
+        showToast("Gra nie została rozpoczęta. Nie możesz zwrócić pieniędzy.", "linear-gradient(to right, #ff5f6d, #ffc3a0)");
         return;
     }
 
@@ -101,7 +104,7 @@ function zwrotPieniedzy(event) {
     srodki += kwotaZwrotu;
     setSrodki(srodki); 
     updateSrodkiWyswietlane(); 
-    alert(`Zwrócono pieniądze! Kwota: ${kwotaZwrotu.toFixed(2)}`);
+    showToast(("Zwrócono pieniądze! Kwota: " + kwotaZwrotu.toFixed(2)), "linear-gradient(to right, #00b09b, #96c93d)");
     koniecGry(); 
 }
 

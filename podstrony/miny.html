@@ -8,6 +8,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="../js/komunikat.js"></script>
     <link rel="stylesheet" href="../css/miny.css">
 </head>
 <body>
@@ -15,7 +18,6 @@
         <header>
             <h1 class="naglowek">Salon Gier PG_KM_3E</h1>
             <a href="srodki.html"><p class="srodki">Środki:</p></a>
-
         </header>
         <nav>
             <p class="gry">GRY</p>
@@ -30,7 +32,7 @@
                     <form onsubmit="startGry(); return false;">
                         Stawka <br>
                        
-                        <input type="number" id="stawka" min="1" placeholder="Podaj stawkę" step="0.01"><br><br>
+                        <input type="number" id="stawka" placeholder="Podaj stawkę" step="0.01"><br><br>
                     
                         Ilość min <br>
                         <input type="number" id="miny" placeholder="1-24"><br><br>

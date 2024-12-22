@@ -56,12 +56,12 @@ function startGry() {
     stawka = parseFloat(document.getElementById("stawka").value);
 
     if(isNaN(stawka) || stawka <= 0) {
-        alert("Proszę podać poprawną stawkę.");
+        showToast("Proszę podać poprawną stawkę.", "linear-gradient(to right, #ff5f6d, #ffc3a0)");
         return;
     }
 
     if (stawka > srodki) {
-        alert("Nie masz wystarczających środków!");
+        showToast("Nie masz wystarczających środków!", "linear-gradient(to right, #ff5f6d, #ffc3a0)");
         return;
     }
 

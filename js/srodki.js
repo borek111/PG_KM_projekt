@@ -11,7 +11,7 @@ function zmienSrodki(event) {
     }
     setSrodki(noweSrodki);
     updateSrodkiWyswietlane();
-    alert("Zmeniono wartość środków.");
+    showToast("Zmeniono wartość środków.", "linear-gradient(to right, #00b09b, #96c93d)"); 
 }
 
 function setSrodki(srodki) {

@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <link rel="stylesheet" href="../css/hilo.css">
 </head>
 <body>
@@ -26,43 +28,47 @@
         <section>
             <div class="stawka">
                 <div class="stawka_div1">
-                    <form>
+                    <form onsubmit="startGry();return false;">
                         Stawka <br><input type="number" id="stawka" step="0.01"><br><br><br>
-                        <button type="submit" onclick="startGry();return false;">Postaw</button>
+                        <button type="submit">Postaw</button>
                     </form>
                     <br><br>
                     <div id="wyniki" class="wyniki">
                         <hr><br><br>
-                        <p id="wygrana">Wygrana: </p><br>
+                        <form onsubmit="zwrotPieniedzy(); return false;">
+                            <p>Zwrot pieniędzy:</p>
+                            <p>Kwota do zwrotu: <span id="kwota-zwrotu">0</span></p>
+                            <button type="submit">Zwróć pieniądze</button>
+                        </form>
                     </div>
                 </div>
             </div>
             <div class="hilo">
+                <div class="card" id="kartaText"></div>
                 <div class="karty">
-                    <img src="../grafika/karty/1.png" id="kartaPNG" alt="karta">
+                    <img src="../grafika/karty/1.png" alt="karta" id="karta">
                 </div>
                 <div class="info">
-                    <div class="zysk_wyzsza">
+                    <div class="zysk_wyzsza" id="zysk_wyzsza">
                         Zysk na wyższej <br>
                     </div>
-                    <div class="zysk_nizsza">
+                    <div class="zysk_nizsza"  id="zysk_nizsza">
                         Zysk na niższej <br>
                     </div>
                 </div>
                 <div class="buttony">
-                    <button>Wyższa lub taka sama</button>
-                    <button>Niższa lub taka sama</button>
-                    <button>Pomiń kartę</button>
+                    <button onclick="wybor('WyzszaRowna')">Wyzsza bądź równa</button>
+                    <button onclick="wybor('NizszaRowna')">Niższa bądź równa</button>
+                    <button onclick="pominKarte()">Pomiń kartę</button>
                 </div>
+                <div class="wynik" id="wynik"></div>
                 <div class="historia_kart">
                     <p>Ostatnie karty</p><br>
                     <div class="historia_kart_div1">
                         to do
                         <div></div>
                     </div>
-                    
                 </div>
-
             </div>
         </section>
         <footer>

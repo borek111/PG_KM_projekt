@@ -52,6 +52,21 @@ function odblokujPrzyciski() {
     });
 }
 
+function showToast(text, backgroundColor) {
+    Toastify({
+        text: text,
+        duration: 5000,  
+        style: {
+            background: backgroundColor
+        },
+        gravity: "top",  
+        position: "center",  
+        onClick: function () {
+            this.hideToast();  
+        }
+    }).showToast();
+}
+
 
 function Czas() {
     if (czas > 0) {
@@ -183,20 +198,10 @@ function setWybor(wartosc) {
     }
 }
 
+
 function sprawdzWyniki() {
     if (!graRozpoczeta) {
-        const toastInstance = Toastify({
-            text: "Najpierw wybierz stawkę i rozpocznij grę!",
-            duration: 5000,
-            style: {
-                background: "linear-gradient(to right, #ff5f6d, #ffc3a0)"
-            },
-            gravity: "top",
-            position: "center",
-            onClick: function () {
-                toastInstance.hideToast();
-            }
-        }).showToast();
+        showToast("Najpierw wybierz stawkę i rozpocznij grę!", "linear-gradient(to right, #ff5f6d, #ffc3a0)");
         return;
     }
     
@@ -234,35 +239,14 @@ function sprawdzWyniki() {
         setSrodki(srodki);
         updateSrodkiWyswietlane();
         wynik += `\nGratulacje! Wygrałeś ${wygrana.toFixed(2)}`;
-        const toastInstance = Toastify({
-            text: wynik,
-            duration: 5000,  
-            style: {
-                background: "linear-gradient(to right, #00b09b, #96c93d)"
-            }, 
-            gravity: "top",  
-            position: "center",  
-            onClick: function () {
-                toastInstance.hideToast();
-            }
-        }).showToast();
+        showToast(wynik, "linear-gradient(to right, #00b09b, #96c93d)");
+    } else {
+        showToast(wynik, "linear-gradient(to right, #ff5f6d, #ffc3a0)");
     }
-    else{
-        const toastInstance = Toastify({
-            text: wynik,
-            duration: 5000,  
-            style: {
-                background: "linear-gradient(to right, #ff5f6d, #ffc3a0)"
-            }, 
-            gravity: "top",  
-            position: "center",  
-            onClick: function () {
-                toastInstance.hideToast();
-            }
-        }).showToast();
-    } 
+
     graRozpoczeta = false;
     wybranaStawka = null;
     wybor = null;
 }
+
 

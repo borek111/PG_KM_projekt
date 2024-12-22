@@ -1,5 +1,8 @@
 const karty = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
 const kolory = ["kier", "karo", "trefl", "pik"];
+const historiaKart = []; 
+const maxHistoria = 5; 
+const historiaKartDiv = document.querySelector('.historia_kart_div1');
 var karta=document.getElementById("karta");
 var stawka=0;
 var graRozpoczeta=false;
@@ -8,10 +11,31 @@ var mnoznik=0;
 var kwotaZwrotu=0;
 var kwotaZwrotuText=document.getElementById("kwota-zwrotu");
 
+
+function aktualizujHistorieKart(karta) {
+    historiaKart.unshift(karta);
+
+    if (historiaKart.length > maxHistoria) {
+        historiaKart.pop();
+    }
+    historiaKartDiv.innerHTML = '';
+
+    historiaKart.forEach((karta) => {
+        const kartaElement = document.createElement('div');
+        kartaElement.classList.add('karta-historia');
+        kartaElement.innerHTML = `<img src="../grafika/karty/${karta.karta}${karta.kolor}.png" alt="${karta.karta} ${karta.kolor}">`;
+        historiaKartDiv.appendChild(kartaElement);
+    });
+}
+
 function LosowanieKarty() {
     const kartaIndex = Math.floor(Math.random() * karty.length);
     const kolorIndex = Math.floor(Math.random() * kolory.length);
-    return { karta: karty[kartaIndex], kolor: kolory[kolorIndex], index: kartaIndex };
+    const nowaKarta = { karta: karty[kartaIndex], kolor: kolory[kolorIndex], index: kartaIndex };
+
+    aktualizujHistorieKart(nowaKarta);
+
+    return nowaKarta;
 }
 
 function odswiezSzanse(wylosowanaKartaIndex) {

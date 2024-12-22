@@ -4,6 +4,7 @@ let kwotaZwrotu = 0;
 let odkrytePola = 0; 
 let moznaMnozyc = false; 
 let liczbaMin = 0; 
+let kwotaZwrotuText = document.getElementById("kwota-zwrotu");
 
 // Funkcja uruchamiająca grę
 function startGry() {
@@ -66,10 +67,12 @@ function odkryjPole(index) {
         pole.style.backgroundImage ="url('../grafika/miny/bomba.png')";
         pole.style.backgroundSize = "75px";
         pole.style.backgroundRepeat = "no-repeat";
-        pole.style.backgroundPosition = "center";
+        pole.style.backgroundPosition = "center";  
+        kwotaZwrotuText.innerHTML = "przegrałeś";
         showToast("Boom! Trafiłeś na minę!", "linear-gradient(to right, #ff5f6d, #ffc3a0)");
         pokazMiny();
         koniecGry();
+      
     } else {
         pole.style.backgroundImage = "url('../grafika/miny/znaczek.png')";
         pole.style.backgroundSize = "75px";

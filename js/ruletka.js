@@ -154,7 +154,6 @@ function dodajTabele() {
 function wyborStawka(wartosc) {
     if (!graRozpoczeta) {
         graRozpoczeta = true;
-        alert("Gra rozpoczęta!");
     }
     
     let srodki = getSrodki();  
@@ -186,9 +185,21 @@ function setWybor(wartosc) {
 
 function sprawdzWyniki() {
     if (!graRozpoczeta) {
-        alert("Najpierw wybierz stawkę i rozpocznij grę!");
+        const toastInstance = Toastify({
+            text: "Najpierw wybierz stawkę i rozpocznij grę!",
+            duration: 5000,
+            style: {
+                background: "linear-gradient(to right, #ff5f6d, #ffc3a0)"
+            },
+            gravity: "top",
+            position: "center",
+            onClick: function () {
+                toastInstance.hideToast();
+            }
+        }).showToast();
         return;
     }
+    
     let wygrana = 0;
     let wynik = `Wynik losowania: ${losSTRING} (${kolor})`;
 
@@ -214,9 +225,7 @@ function sprawdzWyniki() {
     }
     // Brak trafienia
     else {
-        wynik += `\nNie trafiłeś.`;
-        wybranaStawka = null;
-        wybor = null;
+        wynik += `\nNie trafiłeś.`;  
     }
 
     if (wygrana > 0) {
@@ -225,9 +234,35 @@ function sprawdzWyniki() {
         setSrodki(srodki);
         updateSrodkiWyswietlane();
         wynik += `\nGratulacje! Wygrałeś ${wygrana.toFixed(2)}`;
-        wybranaStawka = null;
-        wybor = null;
+        const toastInstance = Toastify({
+            text: wynik,
+            duration: 5000,  
+            style: {
+                background: "linear-gradient(to right, #00b09b, #96c93d)"
+            }, 
+            gravity: "top",  
+            position: "center",  
+            onClick: function () {
+                toastInstance.hideToast();
+            }
+        }).showToast();
     }
-
-    alert(wynik);
+    else{
+        const toastInstance = Toastify({
+            text: wynik,
+            duration: 5000,  
+            style: {
+                background: "linear-gradient(to right, #ff5f6d, #ffc3a0)"
+            }, 
+            gravity: "top",  
+            position: "center",  
+            onClick: function () {
+                toastInstance.hideToast();
+            }
+        }).showToast();
+    } 
+    graRozpoczeta = false;
+    wybranaStawka = null;
+    wybor = null;
 }
+

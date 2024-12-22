@@ -54,13 +54,11 @@ function aktualizujZakres(zakres) {
 
 function startGry() { 
     stawka = parseFloat(document.getElementById("stawka").value);
-    console.log("Aktualna stawka: " + stawka);
 
     if(isNaN(stawka) || stawka <= 0) {
         alert("Proszę podać poprawną stawkę.");
         return;
     }
-    console.log("Aktualne środki: " + srodki);
 
     if (stawka > srodki) {
         alert("Nie masz wystarczających środków!");
@@ -80,20 +78,12 @@ function startGry() {
 
 
 function zwrotPieniedzy() {
-    if (los >= zakresMin1 && los <= zakresMax1) {
-        stawka = parseFloat(document.getElementById("stawka").value);
-
-        obliczMnoznik();
-        wygrana = stawka * mnoznik;
-        console.log("Wygrana: " + wygrana);
-
-        srodki += wygrana;
-        setSrodki(srodki);  
-        updateSrodkiWyswietlane(); 
-        wygrana_text.innerHTML = "Ostatnia wygrana: " + wygrana.toFixed(2);
-    } else {
-        wygrana_text.innerHTML = "Niestety przegrałeś :(";
-    }
+    stawka = parseFloat(document.getElementById("stawka").value);
+    obliczMnoznik();
+    wygrana = stawka * mnoznik;
+    srodki += wygrana;
+    setSrodki(srodki);  
+    updateSrodkiWyswietlane();      
 }
 
 
@@ -147,9 +137,12 @@ function UstawKostke2() {
 }
 
 function sprawdzWynik() {
-    //console.log(zakresMin1, zakresMax1);
-    //console.log(los);
     if (los >= zakresMin1 && los <= zakresMax1) {
         zwrotPieniedzy(); 
+        wygrana_text.innerHTML = "Ostatnia wygrana: " + wygrana.toFixed(2);
+    }
+    else
+    {
+        wygrana_text.innerHTML = "Niestety przegrałeś :(";
     }
 }

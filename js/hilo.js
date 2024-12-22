@@ -37,7 +37,6 @@ function startGry() {
 
     //document.querySelector('button[type="submit"]').disabled = true;
 
-    document.getElementById("kwota-zwrotu").textContent = kwotaZwrotu.toFixed(2);
 }
 
 function Losowanie() {

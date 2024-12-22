@@ -23,12 +23,9 @@ function updateSrodkiWyswietlane() {
     document.querySelector(".srodki").textContent = `Środki: ${srodki.toFixed(2)}`;
 }
 
-
 function getSrodki() {
     return +(parseFloat(sessionStorage.getItem("srodki") || "100")).toFixed(2);
 }
-
-
 
 if(document.getElementById("zmiana-srodkow-formularz"))
 {

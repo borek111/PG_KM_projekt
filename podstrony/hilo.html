@@ -7,10 +7,12 @@
     <title>Salon gier</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script src="../js/komunikat.js"></script>
     <link rel="stylesheet" href="../css/hilo.css">
+  
 </head>
 <body>
     <div class="main">
@@ -37,7 +39,7 @@
                         <hr><br><br>
                         <form onsubmit="zwrotPieniedzy(); return false;">
                             <p>Zwrot pieniędzy:</p>
-                            <p>Kwota do zwrotu: <span id="kwota-zwrotu">0</span></p>
+                            <p>Kwota do zwrotu: <span id="kwota-zwrotu"></span></p>
                             <button type="submit">Zwróć pieniądze</button>
                         </form>
                     </div>
@@ -46,7 +48,7 @@
             <div class="hilo">
                 <div class="card" id="kartaText"></div>
                 <div class="karty">
-                    <img src="../grafika/karty/1.png" alt="karta" id="karta">
+                    <img src="../grafika/karty/Apik.png" alt="karta" id="karta">
                 </div>
                 <div class="info">
                     <div class="zysk_wyzsza" id="zysk_wyzsza">
@@ -68,7 +70,9 @@
                         to do
                         <div></div>
                     </div>
+                    
                 </div>
+
             </div>
         </section>
         <footer>

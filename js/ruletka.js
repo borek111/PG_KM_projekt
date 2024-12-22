@@ -235,4 +235,3 @@ function sprawdzWyniki() {
     wybor = null;
 }
 
-

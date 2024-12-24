@@ -124,6 +124,11 @@ function wybor(wybor) {
    
 
 function pominKarte() {
+    if(graRozpoczeta==false)
+    {
+        showToast("Wybierz Stawkę", "linear-gradient(to right, #ff5f6d, #ffc3a0)");
+        return;
+    }
     wylosowanaKarta = LosowanieKarty();
     karta.src="../grafika/karty/"+wylosowanaKarta.karta+wylosowanaKarta.kolor+".png";
     document.getElementById("wynik").innerHTML = "Pominąłeś kartę";

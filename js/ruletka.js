@@ -10,7 +10,7 @@ const kolory = {
     "czarny": ["2", "4", "6", "8", "10", "11", "13", "15", "17", "20", "22", "24", "26", "28", "29", "31", "33", "35"]
 };
 
-var wybor;
+var wybor = null;
 var graRozpoczeta = false;  
 var wybranaStawka;
 var czas = 10;  
@@ -169,20 +169,41 @@ function wyborStawka(wartosc) {
 
 function setWybor(wartosc) {
     if (!graRozpoczeta) {
-        showToast("najpierw wybierz stawkę", "linear-gradient(to right, #ff5f6d, #ffc3a0)");
+        showToast("Najpierw wybierz stawkę", "linear-gradient(to right, #ff5f6d, #ffc3a0)");
         return;
     }
+
     if (wybranaStawka == null) {
-         showToast("najpierw wybierz stawkę", "linear-gradient(to right, #ff5f6d, #ffc3a0)");
-    } else {
-        wybor = wartosc;
-        let srodki = getSrodki(); 
-        srodki -= wybranaStawka;  
-        setSrodki(srodki);         
-        updateSrodkiWyswietlane();
-        showToast(("postawiano "+wybranaStawka + " na " + wybor), "linear-gradient(to right, #00b09b, #96c93d)"); 
+        showToast("Najpierw wybierz stawkę", "linear-gradient(to right, #ff5f6d, #ffc3a0)");
+        return;
     }
+
+    let srodki = getSrodki();
+    if (srodki < wybranaStawka) {
+        showToast("Nie masz wystarczających środków", "linear-gradient(to right, #ff5f6d, #ffc3a0)");
+        return;
+    }
+
+    if (wybor !== null) {
+        showToast("Już postawiłeś na " + wybor, "linear-gradient(to right, #ff5f6d, #ffc3a0)");
+        return;
+    }
+
+    // Ustawiamy wybór na podstawie klikniętego elementu
+    wybor = wartosc;
+
+    // Zmniejszamy środki o wybraną stawkę
+    srodki -= wybranaStawka;
+    setSrodki(srodki);
+    updateSrodkiWyswietlane();
+
+    // Wyświetlamy informację o postawionej stawce
+    showToast(("Postawiono " + wybranaStawka + " na " + wybor), "linear-gradient(to right, #00b09b, #96c93d)");
 }
+
+
+
+
 
 
 function sprawdzWyniki() {

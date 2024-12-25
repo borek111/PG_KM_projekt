@@ -182,9 +182,16 @@ input:focus {
         flex-direction: column;
     }
 
-    .stawka, .siatka {
+    .siatka {
         width: 90%;
         margin: 0 auto;
+        margin-bottom: 20px;
+        margin-top: -20px;
+    }
+    .stawka{
+        width: 90%;
+        margin: 0 auto;
+        margin-bottom: -40px;
     }
 
     .stawka_div1 {

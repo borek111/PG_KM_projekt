@@ -184,9 +184,14 @@ section {
         height: auto;
     }
 
-    .lewo, .prawo {
+    .lewo {
         width: 100%;
         height: auto;
+    }
+    .prawo {
+        width: 100%;
+        height: auto;
+        margin-bottom: 20px;
     }
 
     .text {

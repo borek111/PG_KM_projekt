@@ -9,7 +9,7 @@
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    height: 100vh;
+    min-height: 100vh;
     background: rgb(51,60,64);
     background: linear-gradient(90deg, rgba(51,60,64,1) 0%, rgba(41,48,51,1) 36%);
 }
@@ -74,7 +74,7 @@ nav > a {
 section {
     display: flex;
     width: 80%;
-    height: 70vh;
+    min-height: 70vh;
     align-items: center;
 }
 
@@ -87,7 +87,7 @@ footer {
 
 .stawka {
     width: 30%;
-    height: 70vh;
+    min-height: 70vh;
     color: white;
     padding: 10px;
 }
@@ -106,7 +106,7 @@ footer {
     grid-template-rows: repeat(5, 1fr);
     gap: 10px; 
     width: 70%;
-    height: 70vh;
+    min-height: 70vh;
     padding: 10px;
 }
 
@@ -159,4 +159,65 @@ input:focus {
 
 ::placeholder {
     color: white;
+}
+
+@media (max-width: 768px) {
+    .main {
+        flex-direction: column;
+    }
+
+    nav {
+        width: 100%;
+        height: auto;
+    }
+
+    .gry {
+        text-align: center;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    section {
+        width: 100%;
+        flex-direction: column;
+    }
+
+    .stawka, .siatka {
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .stawka_div1 {
+        width: 90%;
+        margin-top: 20px;
+    }
+
+    .siatka {
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+        gap: 5px;
+    }
+
+    button {
+        font-size: 0.9rem;
+    }
+
+    input {
+        font-size: 0.9rem;
+    }
+
+    footer {
+        text-align: center;
+    }
+
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 10px 0;
+    }
+
+    .srodki {
+        position: static;
+        margin-top: 10px;
+    }
 }

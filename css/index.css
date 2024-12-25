@@ -70,7 +70,6 @@ nav > a {
 
 .gry {
     color: white;
-    height: 10%;
     text-align: center;
 }
 footer {
@@ -148,3 +147,61 @@ section {
     transition: transform 0.3s;
 }
 
+@media (max-width: 768px) {
+    .main {
+        flex-direction: column;
+        height: auto;
+    }
+
+    header {
+        height: auto;
+        padding: 10px;
+        text-align: center;
+        flex-direction: column;
+    }
+
+    .srodki {
+        position: static;
+        margin: 10px 0;
+        text-align: center;
+        font-size: 1.2rem; 
+        text-decoration: none;
+        color: white;
+    }
+
+    nav {
+        width: 100%;
+        height: auto;
+    }
+
+    section {
+        flex-direction: column;
+        width: 100%;
+        height: auto;
+    }
+
+    .lewo, .prawo {
+        width: 100%;
+        height: auto;
+    }
+
+    .text {
+        padding: 20px;
+    }
+
+    .ziutek {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .poradnik {
+        height: auto;
+        margin-top: 20px;
+    }
+
+    footer {
+        height: auto;
+        text-align: center;
+        padding: 10px;
+    }
+}

@@ -185,8 +185,6 @@ input:focus {
     .siatka {
         width: 90%;
         margin: 0 auto;
-        margin-bottom: 20px;
-        margin-top: -20px;
     }
     .stawka{
         width: 90%;
@@ -196,7 +194,6 @@ input:focus {
 
     .stawka_div1 {
         width: 90%;
-        margin-top: 20px;
     }
 
     .siatka {
@@ -206,11 +203,11 @@ input:focus {
     }
 
     button {
-        font-size: 0.9rem;
+        font-size:15px;
     }
 
     input {
-        font-size: 0.9rem;
+        font-size:15px;
     }
 
     footer {
@@ -230,6 +227,10 @@ input:focus {
 
     .srodki {
         position: static;
-        margin-top: 10px;
+        margin: 10px 0;
+        text-align: center;
+        font-size: 20px;
+        text-decoration: none;
+        color: white;
     }
 }

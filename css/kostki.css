@@ -214,6 +214,9 @@ input{
         padding: 20px;
         border-radius: 10px;
     }
+    hr{
+        margin: -35px 0;
+    }
     form {
         width: 100%;
         display: flex;

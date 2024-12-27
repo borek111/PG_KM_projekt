@@ -233,6 +233,9 @@ input{
         width: 90%; 
         margin: 0 auto; 
         text-align: center;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    
     }
     
     #suwak {
@@ -247,6 +250,7 @@ input{
     .kostki{
         width: 90%;
         margin: 0 auto;
+        min-height: auto;
     }
 
     form input, 
@@ -278,5 +282,27 @@ input{
         font-size: 20px;
         text-decoration: none;
         color: white;
+    }
+    header > a {
+        text-decoration: none;
+    }
+    
+    .info{
+        width: 100%;
+        margin: 0 auto;
+        margin-top: -100px;
+        display: flex;
+        justify-content: space-around;
+        height: min-content;
+    }
+    .mnoznik{
+        margin-top: 120px;
+        margin-bottom: 30px;
+        width: 30%;
+    }
+    .szanse{
+        margin-top: 120px;
+        margin-bottom: 30px;
+        width: 30%;
     }
 }

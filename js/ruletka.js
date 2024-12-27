@@ -23,6 +23,7 @@ var timerId;
 var losINT;
 var losSTRING;
 var kolor;
+var komunikat;
 
 function getColor(value) {
     if (value === "0") return "zielony";
@@ -166,6 +167,22 @@ function wyborStawka(wartosc) {
     zablokujPrzyciski();
     wybranaStawka = Number(wartosc); 
 }
+function generujKomunikat(wybor) {
+    if (wybor === "parzysta") {
+        komunikat = "parzystą liczbę";
+    } else if (wybor === "nieparzysta") {
+        komunikat = "nieparzystą liczbę";
+    } else if (wybor === "czerwony") { 
+        komunikat = "czerwony kolor";
+    } else if (wybor === "czarny") { 
+        komunikat = "czarny kolor";
+    } else {
+        komunikat = "liczbę " + wybor;
+    }
+
+    return komunikat;
+}
+
 
 function setWybor(wartosc) {
     if (!graRozpoczeta) {
@@ -185,25 +202,20 @@ function setWybor(wartosc) {
     }
 
     if (wybor !== null) {
-        showToast("Już postawiłeś na " + wybor, "linear-gradient(to right, #ff5f6d, #ffc3a0)");
+        let komunikat = "Już postawiłeś na " + generujKomunikat(wybor)+". Nie możesz postawić na więcej niż jedną opcję.";
+        showToast(komunikat, "linear-gradient(to right, #ff5f6d, #ffc3a0)");
         return;
     }
 
-    // Ustawiamy wybór na podstawie klikniętego elementu
     wybor = wartosc;
 
-    // Zmniejszamy środki o wybraną stawkę
     srodki -= wybranaStawka;
     setSrodki(srodki);
     updateSrodkiWyswietlane();
 
-    // Wyświetlamy informację o postawionej stawce
-    showToast(("Postawiono " + wybranaStawka + " na " + wybor), "linear-gradient(to right, #00b09b, #96c93d)");
+    komunikat = "Postawiono " + wybranaStawka + " na "+ generujKomunikat(wybor);
+    showToast(komunikat, "linear-gradient(to right, #00b09b, #96c93d)");
 }
-
-
-
-
 
 
 function sprawdzWyniki() {

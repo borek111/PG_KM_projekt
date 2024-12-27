@@ -195,11 +195,6 @@ input{
         background: rgb(51,60,64);
         background: linear-gradient(90deg, rgba(51,60,64,1) 0%, rgba(41,48,51,1) 36%);
     }
-
-    .siatka {
-        width: 90%;
-        margin: 0 auto;
-    }
     .stawka{
         width: 90%;
         margin: 0 auto;
@@ -258,6 +253,9 @@ input{
         width: 80%;
         max-width: 300px;
         text-align: center;
+    }
+    .postaw{
+        margin-top: -50px;
     }
 
     footer {

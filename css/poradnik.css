@@ -158,4 +158,7 @@ a:focus {
         min-height: auto;
         margin-bottom: 20px;
     }
+    header > a {
+        text-decoration: none;
+    }
 }

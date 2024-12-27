@@ -234,4 +234,8 @@ input:focus {
         text-decoration: none;
         color: white;
     }
+
+    header > a {
+        text-decoration: none;
+    }
 }

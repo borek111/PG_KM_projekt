@@ -162,10 +162,6 @@ input:focus {
 }
 
 @media (max-width: 768px) {
-    .main {
-        flex-direction: column;
-    }
-
     nav {
         width: 100%;
         height: auto;
@@ -177,9 +173,14 @@ input:focus {
         margin-bottom: 10px;
     }
 
-    section {
+    section{
         width: 100%;
         flex-direction: column;
+        display: flex; 
+        margin: 0;
+        padding: 0;
+        background: rgb(51,60,64);
+        background: linear-gradient(90deg, rgba(51,60,64,1) 0%, rgba(41,48,51,1) 36%);
     }
 
     .siatka {

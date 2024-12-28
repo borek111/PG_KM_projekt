@@ -30,17 +30,19 @@
         <section>
             <div class="stawka">
                 <div class="stawka_div1">
-                    <form onsubmit="startGry();return false;">
-                        Stawka <br><input type="number" id="stawka" step="0.01"><br><br><br>
-                        <button type="submit" class="postaw">Postaw</button>
-                    </form>
+                <form id="stawkaForm" onsubmit="startGry(); return false;">
+                    Stawka: <br>
+                    <input type="number" name="stawka" id="stawka" step="0.01">
+                    <br><br>
+                    <button type="submit" class="postaw">Postaw</button>
+                </form>
                     <br><br>
                     <div id="wyniki" class="wyniki">
                         <hr><br><br>
-                        <form id="zwrot" onsubmit="zwrotPieniedzy();" action="" method="POST" >
+                        <form id="zwrot" onsubmit="zwrotPieniedzy(event);" method="POST" >
                             <p>Zwrot pieniędzy:</p>
                             <p>Kwota do zwrotu: <span id="kwota-zwrotu" name="kwota-zwrotu"></span></p>
-                            <input type="text" name="kwota-zwrotu-input" id="kwota-zwrotu-input">
+                            <input type="hidden" name="kwota-zwrotu-input" id="kwota-zwrotu-input">
                             <button type="submit">Zwróć pieniądze</button>
                         </form>
                     </div>
@@ -74,12 +76,9 @@
             </div>
         </section>
         <footer>
-            Ostatnie gry:
-            <div>
-            <?php
-                include '../php/gry.php';
-            ?>
-            </div>
+        <div>
+            <p>Stawka: <span id="wynik-stawka">Brak stawki</span></p>
+        </div>
         </footer>
     </div>
     <script src="../js/srodki.js"></script>

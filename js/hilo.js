@@ -11,7 +11,6 @@ var mnoznik=0;
 var kwotaZwrotu=0;
 var kwotaZwrotuText=document.getElementById("kwota-zwrotu");
 var kwotaZwrotuInput=document.getElementById("kwota-zwrotu-input");
-kwotaZwrotuInput.value=100;
 
 
 function aktualizujHistorieKart(karta) {
@@ -77,10 +76,27 @@ function startGry(){
     srodki -= stawka;
     setSrodki(srodki);
     updateSrodkiWyswietlane();
+
     kwotaZwrotuText.innerHTML=stawka;
     kwotaZwrotu=stawka;
     kwotaZwrotuInput.value=kwotaZwrotu;
+
+    fetch('../php/hilo_gry.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: 'stawka=' + stawka
+    })
+    .then(response => response.text())
+    .then(data => {
+        // Zaktualizowanie stawki w stopce
+        document.getElementById("wynik-stawka").innerText = stawka;
+    })
+    .catch(error => console.error('Error:', error));
+
     graRozpoczeta=true;
+
 }
 
 
@@ -141,8 +157,8 @@ function pominKarte() {
     odswiezSzanse(wylosowanaKarta.index);
 }
 
-function zwrotPieniedzy() {
-   
+function zwrotPieniedzy(event) {
+    event.preventDefault();
     if (!graRozpoczeta) {
         showToast("Gra nie została rozpoczęta. Nie możesz zwrócić pieniędzy.", "linear-gradient(to right, #ff5f6d, #ffc3a0)");
         return;
@@ -153,5 +169,10 @@ function zwrotPieniedzy() {
     srodki += parseFloat(kwotaZwrotu);
     setSrodki(srodki); 
     updateSrodkiWyswietlane(); 
+
+    const kwotaZwrotuInput = document.getElementById("kwota-zwrotu-input");
+    kwotaZwrotuInput.value = kwotaZwrotu;  
+
+    showToast('Zwrócono pieniądze! Kwota: ' + kwotaZwrotu, 'linear-gradient(to right, #00b09b, #96c93d)');
 
 }

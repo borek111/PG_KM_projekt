@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet"> 
-     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="../js/komunikat.js"></script>
     <link rel="stylesheet" href="../css/hilo.css">
@@ -37,9 +37,10 @@
                     <br><br>
                     <div id="wyniki" class="wyniki">
                         <hr><br><br>
-                        <form onsubmit="zwrotPieniedzy(); return false;">
+                        <form id="zwrot" onsubmit="zwrotPieniedzy();" action="" method="POST" >
                             <p>Zwrot pieniędzy:</p>
-                            <p>Kwota do zwrotu: <span id="kwota-zwrotu"></span></p>
+                            <p>Kwota do zwrotu: <span id="kwota-zwrotu" name="kwota-zwrotu"></span></p>
+                            <input type="text" name="kwota-zwrotu-input" id="kwota-zwrotu-input">
                             <button type="submit">Zwróć pieniądze</button>
                         </form>
                     </div>
@@ -75,7 +76,9 @@
         <footer>
             Ostatnie gry:
             <div>
-                TO DO w php
+            <?php
+                include '../php/gry.php';
+            ?>
             </div>
         </footer>
     </div>

@@ -12,7 +12,7 @@ if (!$conn) {
 
 $sql = "CREATE DATABASE IF NOT EXISTS $dbname";
 if (mysqli_query($conn, $sql)) {
-    echo "Baza danych '$dbname' została utworzona lub już istnieje.\n";
+    //echo "Baza danych '$dbname' została utworzona lub już istnieje.\n";
 } else {
     echo "Błąd przy tworzeniu bazy danych: " . mysqli_error($conn) . "\n";
 }
@@ -32,10 +32,9 @@ $table_sql = "CREATE TABLE IF NOT EXISTS gry (
 )";
 
 if (mysqli_query($conn, $table_sql)) {
-    echo "Tabela 'gry' została utworzona lub już istnieje.\n";
+    //echo "Tabela 'gry' została utworzona lub już istnieje.\n";
 } else {
     echo "Błąd przy tworzeniu tabeli: " . mysqli_error($conn) . "\n";
 }
 
-mysqli_close($conn);
 ?>

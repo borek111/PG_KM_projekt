@@ -10,6 +10,8 @@ let wylosowanaKarta = LosowanieKarty();
 var mnoznik=0;
 var kwotaZwrotu=0;
 var kwotaZwrotuText=document.getElementById("kwota-zwrotu");
+var kwotaZwrotuInput=document.getElementById("kwota-zwrotu-input");
+kwotaZwrotuInput.value=100;
 
 
 function aktualizujHistorieKart(karta) {
@@ -55,6 +57,7 @@ odswiezSzanse(wylosowanaKarta.index);
 
 
 function startGry(){
+   
     if (graRozpoczeta) {
         return; 
     }
@@ -76,6 +79,7 @@ function startGry(){
     updateSrodkiWyswietlane();
     kwotaZwrotuText.innerHTML=stawka;
     kwotaZwrotu=stawka;
+    kwotaZwrotuInput.value=kwotaZwrotu;
     graRozpoczeta=true;
 }
 
@@ -109,10 +113,12 @@ function wybor(wybor) {
         wynik = "Trafiłeś";
         kwotaZwrotu=(kwotaZwrotu*mnoznik).toFixed(2);
         kwotaZwrotuText.innerHTML=kwotaZwrotu;
+        kwotaZwrotuInput.value=kwotaZwrotu;
     } else {
         wynik = "Nie trafiłeś";
         kwotaZwrotu=0;
         kwotaZwrotuText.innerHTML="Przegrałeś";
+        kwotaZwrotuInput.value=kwotaZwrotu;
         graRozpoczeta=false;
     }
 
@@ -136,14 +142,16 @@ function pominKarte() {
 }
 
 function zwrotPieniedzy() {
+   
     if (!graRozpoczeta) {
         showToast("Gra nie została rozpoczęta. Nie możesz zwrócić pieniędzy.", "linear-gradient(to right, #ff5f6d, #ffc3a0)");
         return;
-    }
+    } 
+   
     graRozpoczeta=false;
     let srodki = getSrodki();
     srodki += parseFloat(kwotaZwrotu);
     setSrodki(srodki); 
     updateSrodkiWyswietlane(); 
-    showToast(("Zwrócono pieniądze! Kwota: " + kwotaZwrotu), "linear-gradient(to right, #00b09b, #96c93d)");
+
 }

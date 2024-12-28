@@ -11,11 +11,7 @@ if (!$conn) {
 }
 
 $sql = "CREATE DATABASE IF NOT EXISTS $dbname";
-if (mysqli_query($conn, $sql)) {
-    //echo "Baza danych '$dbname' została utworzona lub już istnieje.\n";
-} else {
-    echo "Błąd przy tworzeniu bazy danych: " . mysqli_error($conn) . "\n";
-}
+mysqli_query($conn, $sql);
 
 mysqli_close($conn);
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -32,10 +28,6 @@ $table_sql = "CREATE TABLE IF NOT EXISTS gry (
     czyWygrana BOOLEAN NOT NULL
 )";
 
-if (mysqli_query($conn, $table_sql)) {
-    //echo "Tabela 'gry' została utworzona lub już istnieje.\n";
-} else {
-    echo "Błąd przy tworzeniu tabeli: " . mysqli_error($conn) . "\n";
-}
+mysqli_query($conn, $table_sql);
 
 ?>

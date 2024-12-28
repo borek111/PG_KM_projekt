@@ -26,9 +26,10 @@ if (!$conn) {
 
 $table_sql = "CREATE TABLE IF NOT EXISTS gry (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    imie VARCHAR(100) NOT NULL,
-    nazwisko VARCHAR(100) NOT NULL,
-    email VARCHAR(100) UNIQUE NOT NULL
+    nazwaGry VARCHAR(100) NOT NULL,
+    wygrana FLOAT NOT NULL,
+    przegrana FLOAT NOT NULL,
+    czyWygrana BOOLEAN NOT NULL
 )";
 
 if (mysqli_query($conn, $table_sql)) {

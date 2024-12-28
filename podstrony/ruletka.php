@@ -18,14 +18,14 @@
     <div class="main">
         <header>
             <h1 class="naglowek">Salon Gier PG_KM_3E</h1>
-            <a href="srodki.html"><p class="srodki">Środki:</p></a>
+            <a href="srodki.php"><p class="srodki">Środki:</p></a>
         </header>
         <nav>
             <p class="gry">GRY</p>
-            <a href="../index.html"><div class="nav_link"><img src="../grafika/indexlogo.png" alt="logo"></div></a>
-            <a href="miny.html"><div class="nav_link"><img src="../grafika/miny/minylogo.png" alt="miny"></div></a>
-            <a href="kostki.html"><div class="nav_link"><img src="../grafika/kostki/kostkilogo.png" alt="kostki"></div></a>
-            <a href="hilo.html"><div class="nav_link"><img src="../grafika/karty/kartylogo.png" alt="hilo"></div></a>
+            <a href="../index.php"><div class="nav_link"><img src="../grafika/indexlogo.png" alt="logo"></div></a>
+            <a href="miny.php"><div class="nav_link"><img src="../grafika/miny/minylogo.png" alt="miny"></div></a>
+            <a href="kostki.php"><div class="nav_link"><img src="../grafika/kostki/kostkilogo.png" alt="kostki"></div></a>
+            <a href="hilo.php"><div class="nav_link"><img src="../grafika/karty/kartylogo.png" alt="hilo"></div></a>
         </nav>
         <section>
         

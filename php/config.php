@@ -1,6 +1,4 @@
 <?php
-header("Cache-Control: no-cache, no-store, must-revalidate");
-
 $servername = "localhost";
 $username = "root"; 
 $password = "";      

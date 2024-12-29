@@ -42,8 +42,8 @@ function LosowanieKarty() {
 function odswiezSzanse(wylosowanaKartaIndex) {
     const szansaNizsza = ((wylosowanaKartaIndex + 1) / karty.length * 100).toFixed(2);
     const szansaWyzsza = ((karty.length - wylosowanaKartaIndex) / karty.length * 100).toFixed(2);
-    document.getElementById("zysk_wyzsza").innerHTML = `Szansa na wyższą: <br>${szansaWyzsza}%`;
-    document.getElementById("zysk_nizsza").innerHTML =`Szansa na niższą: <br>${szansaNizsza}%`;
+    document.getElementById("zysk_wyzsza").innerHTML = `Szansa na wyższą lub taką samą: <br>${szansaWyzsza}%`;
+    document.getElementById("zysk_nizsza").innerHTML =`Szansa na niższą lub taką samą: <br>${szansaNizsza}%`;
 }
 
 function obliczMnoznik(szansa) {
@@ -81,7 +81,7 @@ function startGry(){
     kwotaZwrotu=stawka;
     kwotaZwrotuInput.value=kwotaZwrotu;
 
-    fetch('../php/hilo_gry.php', {
+    fetch('../php/gry.php', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -89,8 +89,7 @@ function startGry(){
         body: 'stawka=' + stawka
     })
     .then(() => {
-        // Zaktualizowanie stawki w stopce
-        document.getElementById("wynik-stawka").innerText = stawka;
+        
     })
     .catch(error => console.error('Error:', error));
 
@@ -120,19 +119,20 @@ function wybor(wybor) {
     }
 
     var wynik;
-    let wygrana = false;
+    let czyWygrana = false;
 
     if (
         (wybor === "WyzszaRowna" && nastepnaKartaWartosc >= wylosowanaKartaWartosc) ||
         (wybor === "NizszaRowna" && nastepnaKartaWartosc <= wylosowanaKartaWartosc)
     ) {
         wynik = "Trafiłeś";
-        wygrana = true;
+        czyWygrana = true;
         kwotaZwrotu = (kwotaZwrotu * mnoznik).toFixed(2);
         kwotaZwrotuText.innerHTML = kwotaZwrotu;
         kwotaZwrotuInput.value = kwotaZwrotu;
     } else {
         wynik = "Nie trafiłeś";
+        czyWygrana = false;
         kwotaZwrotu = 0;
         kwotaZwrotuText.innerHTML = "Przegrałeś";
         kwotaZwrotuInput.value = kwotaZwrotu;
@@ -140,17 +140,21 @@ function wybor(wybor) {
     }
 
     // Wysyłanie informacji o wygranej do PHP
-    fetch('../php/hilo_gry.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: `stawka=${stawka}&wygrana=${wygrana}&kwota=${kwotaZwrotu}&nazwaGry=Hilo`
-    })
-    .then(response => response.text())
-    .then(() => {
-    })
-    .catch(error => console.error('Error:', error));
+    if(czyWygrana==false)
+    {
+        fetch('../php/gry.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `stawka=${stawka}&czyWygrana=${czyWygrana}&kwota=${kwotaZwrotu}&nazwaGry=Hilo`
+        })
+        .then(response => response.text())
+        .then(() => {
+        })
+        .catch(error => console.error('Error:', error));
+    }
+    
 
     document.getElementById("wynik").innerHTML = wynik;
     wylosowanaKarta = nastepnaKarta;
@@ -179,7 +183,7 @@ function zwrotPieniedzy(event) {
         showToast("Gra nie została rozpoczęta. Nie możesz zwrócić pieniędzy.", "linear-gradient(to right, #ff5f6d, #ffc3a0)");
         return;
     } 
-   
+    czyWygrana = true;
     graRozpoczeta=false;
     let srodki = getSrodki();
     srodki += parseFloat(kwotaZwrotu);
@@ -189,6 +193,18 @@ function zwrotPieniedzy(event) {
     const kwotaZwrotuInput = document.getElementById("kwota-zwrotu-input");
     kwotaZwrotuInput.value = kwotaZwrotu;  
     kwotaZwrotuText.innerHTML = 0;
+    fetch('../php/gry.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `stawka=${stawka}&czyWygrana=${czyWygrana}&kwota=${kwotaZwrotu}&nazwaGry=Hilo`
+    })
+    .then(response => response.text())
+    .then(() => {
+    })
+    .catch(error => console.error('Error:', error));
+
 
     showToast('Zwrócono pieniądze! Kwota: ' + kwotaZwrotu, 'linear-gradient(to right, #00b09b, #96c93d)');
 

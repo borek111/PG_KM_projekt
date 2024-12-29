@@ -12,23 +12,23 @@
 <?php
 require_once("config.php");
 
-if (isset($_POST["stawka"]) && isset($_POST["wygrana"]) && isset($_POST["kwota"]) && isset($_POST["nazwaGry"])) {
+if (isset($_POST["stawka"]) && isset($_POST["czyWygrana"]) && isset($_POST["kwota"]) && isset($_POST["nazwaGry"])) {
     $stawka = $_POST["stawka"];
-    $wygrana = $_POST["wygrana"];
+    $czyWygrana = $_POST["czyWygrana"];
     $kwota = $_POST["kwota"];
     $nazwaGry = $_POST["nazwaGry"];
     
-    $wygrana = ($wygrana == "true") ? 1 : 0;
+    $czyWygrana = ($czyWygrana == "true") ? 1 : 0;
 
-    $przegrana = ($wygrana == 1) ? 0 : $stawka;
+    $przegrana = ($czyWygrana == 1) ? 0 : $stawka;
 
-    $query = "INSERT INTO gry (nazwaGry, wygrana, przegrana, czyWygrana) VALUES ('$nazwaGry', '$kwota', '$przegrana', '$wygrana')";
+    $query = "INSERT INTO gry (nazwaGry, wygrana, przegrana, czyWygrana) VALUES ('$nazwaGry', '$kwota', '$przegrana', '$czyWygrana')";
 
     mysqli_query($conn, $query);
-   
 }
 
-mysqli_close($conn);
+
+
 ?>
 
 

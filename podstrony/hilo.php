@@ -55,10 +55,10 @@
                 </div>
                 <div class="info">
                     <div class="zysk_wyzsza" id="zysk_wyzsza">
-                        Zysk na wyższej <br>
+                       
                     </div>
                     <div class="zysk_nizsza"  id="zysk_nizsza">
-                        Zysk na niższej <br>
+                       
                     </div>
                 </div>
                 <div class="buttony">
@@ -76,8 +76,10 @@
             </div>
         </section>
         <footer>
-        <div>
-            <p>Stawka: <span id="wynik-stawka">Brak stawki</span></p>
+        <div class="divFooter">
+        <?php 
+            include("../php/wyswietl.php");
+        ?>
         </div>
         </footer>
     </div>

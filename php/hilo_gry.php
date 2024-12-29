@@ -15,20 +15,12 @@ require_once("config.php");
 if (isset($_POST["stawka"])) {
     $stawka = $_POST["stawka"];
     
-    if (empty($stawka) || !is_numeric($stawka) || $stawka <= 0) {
-        echo "<script>
-            showToast('Błąd: Proszę podać poprawną stawkę!', 'linear-gradient(to right, #ff5f6d, #ffc3a0)');
-        </script>";
-    } else {
+    if (!(empty($stawka) || !is_numeric($stawka) || $stawka <= 0)) 
+    {
         echo "Stawka: " . $stawka; 
+    } 
+      
     }
-} else {
-    echo "<script>
-        showToast('Błąd: Stawka nie została podana!', 'linear-gradient(to right, #ff5f6d, #ffc3a0)');
-    </script>";
-}
-
-
 mysqli_close($conn);
 ?>
 

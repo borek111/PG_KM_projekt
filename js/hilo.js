@@ -88,8 +88,7 @@ function startGry(){
         },
         body: 'stawka=' + stawka
     })
-    .then(response => response.text())
-    .then(data => {
+    .then(() => {
         // Zaktualizowanie stawki w stopce
         document.getElementById("wynik-stawka").innerText = stawka;
     })
@@ -172,6 +171,7 @@ function zwrotPieniedzy(event) {
 
     const kwotaZwrotuInput = document.getElementById("kwota-zwrotu-input");
     kwotaZwrotuInput.value = kwotaZwrotu;  
+    kwotaZwrotuText.innerHTML = 0;
 
     showToast('Zwrócono pieniądze! Kwota: ' + kwotaZwrotu, 'linear-gradient(to right, #00b09b, #96c93d)');
 

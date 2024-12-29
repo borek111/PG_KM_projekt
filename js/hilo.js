@@ -11,6 +11,7 @@ var mnoznik=0;
 var kwotaZwrotu=0;
 var kwotaZwrotuText=document.getElementById("kwota-zwrotu");
 var kwotaZwrotuInput=document.getElementById("kwota-zwrotu-input");
+var divFooter=document.getElementById("divFooter");
 
 
 function aktualizujHistorieKart(karta) {
@@ -137,6 +138,8 @@ function wybor(wybor) {
         kwotaZwrotuText.innerHTML = "Przegrałeś";
         kwotaZwrotuInput.value = kwotaZwrotu;
         graRozpoczeta = false;
+        
+
     }
 
     // Wysyłanie informacji o wygranej do PHP
@@ -151,6 +154,7 @@ function wybor(wybor) {
         })
         .then(response => response.text())
         .then(() => {
+            aktualizujHistorieGier();
         })
         .catch(error => console.error('Error:', error));
     }
@@ -159,11 +163,9 @@ function wybor(wybor) {
     document.getElementById("wynik").innerHTML = wynik;
     wylosowanaKarta = nastepnaKarta;
     odswiezSzanse(wylosowanaKarta.index);
+    
 }
 
-
-    
-   
 
 function pominKarte() {
     if(graRozpoczeta==false)
@@ -202,10 +204,23 @@ function zwrotPieniedzy(event) {
     })
     .then(response => response.text())
     .then(() => {
+        aktualizujHistorieGier();
     })
     .catch(error => console.error('Error:', error));
 
-
     showToast('Zwrócono pieniądze! Kwota: ' + kwotaZwrotu, 'linear-gradient(to right, #00b09b, #96c93d)');
 
+
+}
+
+function aktualizujHistorieGier() {
+    fetch('../php/wyswietl.php')
+        .then(response => response.text())
+        .then(data => {
+            const divFooter = document.getElementById("divFooter");
+            divFooter.innerHTML = data; 
+        })
+        .catch(error => {
+            console.error('Error fetching games:', error);
+        });
 }

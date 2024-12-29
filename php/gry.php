@@ -26,11 +26,7 @@ if (isset($_POST["stawka"]) && isset($_POST["czyWygrana"]) && isset($_POST["kwot
 
     mysqli_query($conn, $query);
 }
-
-
-
 ?>
-
 
 </body>
 </html>

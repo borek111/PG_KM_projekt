@@ -100,14 +100,13 @@ function startGry(){
 
 
 function wybor(wybor) {
-    if(graRozpoczeta==false)
-    {
+    if (graRozpoczeta == false) {
         showToast("Wybierz Stawkę", "linear-gradient(to right, #ff5f6d, #ffc3a0)");
         return;
     }
 
     const nastepnaKarta = LosowanieKarty();
-    karta.src="../grafika/karty/"+nastepnaKarta.karta+nastepnaKarta.kolor+".png";
+    karta.src = "../grafika/karty/" + nastepnaKarta.karta + nastepnaKarta.kolor + ".png";
     const wylosowanaKartaWartosc = wylosowanaKarta.index;
     const nastepnaKartaWartosc = nastepnaKarta.index;
 
@@ -121,26 +120,44 @@ function wybor(wybor) {
     }
 
     var wynik;
+    let wygrana = false;
+
     if (
         (wybor === "WyzszaRowna" && nastepnaKartaWartosc >= wylosowanaKartaWartosc) ||
         (wybor === "NizszaRowna" && nastepnaKartaWartosc <= wylosowanaKartaWartosc)
     ) {
         wynik = "Trafiłeś";
-        kwotaZwrotu=(kwotaZwrotu*mnoznik).toFixed(2);
-        kwotaZwrotuText.innerHTML=kwotaZwrotu;
-        kwotaZwrotuInput.value=kwotaZwrotu;
+        wygrana = true;
+        kwotaZwrotu = (kwotaZwrotu * mnoznik).toFixed(2);
+        kwotaZwrotuText.innerHTML = kwotaZwrotu;
+        kwotaZwrotuInput.value = kwotaZwrotu;
     } else {
         wynik = "Nie trafiłeś";
-        kwotaZwrotu=0;
-        kwotaZwrotuText.innerHTML="Przegrałeś";
-        kwotaZwrotuInput.value=kwotaZwrotu;
-        graRozpoczeta=false;
+        kwotaZwrotu = 0;
+        kwotaZwrotuText.innerHTML = "Przegrałeś";
+        kwotaZwrotuInput.value = kwotaZwrotu;
+        graRozpoczeta = false;
     }
+
+    // Wysyłanie informacji o wygranej do PHP
+    fetch('../php/hilo_gry.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `stawka=${stawka}&wygrana=${wygrana}&kwota=${kwotaZwrotu}&nazwaGry=Hilo`
+    })
+    .then(response => response.text())
+    .then(() => {
+    })
+    .catch(error => console.error('Error:', error));
 
     document.getElementById("wynik").innerHTML = wynik;
     wylosowanaKarta = nastepnaKarta;
     odswiezSzanse(wylosowanaKarta.index);
 }
+
+
     
    
 

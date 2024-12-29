@@ -81,19 +81,6 @@ function startGry(){
     kwotaZwrotuText.innerHTML=stawka;
     kwotaZwrotu=stawka;
     kwotaZwrotuInput.value=kwotaZwrotu;
-
-    fetch('../php/gry.php', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: 'stawka=' + stawka
-    })
-    .then(() => {
-        
-    })
-    .catch(error => console.error('Error:', error));
-
     graRozpoczeta=true;
 
 }
@@ -221,6 +208,6 @@ function aktualizujHistorieGier() {
             divFooter.innerHTML = data; 
         })
         .catch(error => {
-            console.error('Error fetching games:', error);
+            console.error('Error: ', error);
         });
 }

@@ -241,6 +241,6 @@ button:hover{
         text-decoration: none;
     }
     button{
-        z-index: 1000;
+        z-index: 10;
     }
 }

@@ -287,7 +287,7 @@ button:hover {
         width: 80%;
         max-width: 300px;
         text-align: center;
-        z-index: 1000;
+        z-index: 10;
     }
     .postaw{
         margin-top: -35px;

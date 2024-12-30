@@ -106,6 +106,7 @@ footer {
     height: 15vh;
     width: 100%;
     color: white;
+    text-align: center;
 }
 
 section > h2 {
@@ -126,6 +127,36 @@ section > p {
 a:focus {
     outline: none;
     text-decoration: none;
+}
+.divFooter{
+    color:white;
+    display:flex;
+    text-align: center;
+    justify-content: center;
+}
+.divGry1{
+    margin:30px;
+    width:10%;
+    margin-top:35px;
+    padding:20px;
+    height:100%;
+    background-color: #0f141a;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0px 0px 20px -10px rgba(247, 3, 3, 1);
+    -moz-box-shadow: inset 0px 0px 20px -10px rgba(247, 3, 3, 1);
+    box-shadow: inset 0px 0px 20px -10px rgba(247, 3, 3, 1);
+}
+.divGry2{
+    margin:30px;
+    width:10%;
+    margin-top:35px;
+    padding:20px;
+    height:100%;
+    background-color: #0f141a;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0px 0px 20px -10px rgba(0, 255, 41, 1);
+    -moz-box-shadow: inset 0px 0px 20px -10px rgba(0, 255, 41, 1);
+    box-shadow: inset 0px 0px 20px -10px rgba(0, 255, 41, 1);
 }
 
 @media (max-width: 768px) {
@@ -160,5 +191,26 @@ a:focus {
     }
     header > a {
         text-decoration: none;
+    }
+    footer{
+        height: fit-content;
+    }
+    .divFooter{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        flex-direction: column;
+        margin: 0 auto;
+    }
+    .divGry1{
+        width: 100%;
+        padding: 10px;
+        margin: 7px 0;
+    }
+    .divGry2{
+        width: 100%;
+        padding: 10px;
+        margin: 7px 0;
     }
 }

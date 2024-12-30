@@ -16,7 +16,7 @@ var wygrana_text = document.getElementById("wygrana");
 var wygrana;
 let srodki = getSrodki();
 var iloscWygranych = 1;
-
+var czyWygrana=false;
 
 // Suwak z jQuery
 $(function() {
@@ -140,6 +140,7 @@ function UstawKostke2() {
 function sprawdzWynik() {
     if (los >= zakresMin1 && los <= zakresMax1) {
         zwrotPieniedzy(); 
+        czyWygrana=true;
         wygrana_text.innerHTML = "Ostatnia wygrana: " + wygrana.toFixed(2) + " (" + iloscWygranych+"x)";
         iloscWygranych+=1;
     }
@@ -147,5 +148,21 @@ function sprawdzWynik() {
     {
         wygrana_text.innerHTML = "Niestety przegrałeś :(";  
         iloscWygranych = 1;
+        czyWygrana=false;
     }
+    
+    fetch('../php/gry.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `stawka=${stawka}&czyWygrana=${czyWygrana}&kwota=${wygrana}&nazwaGry=Kostki`
+    })
+    .then(response => response.text())
+    .then(() => {
+        aktualizujHistorieGier();
+    })
+    .catch(error => console.error('Error:', error));
 }
+
+setInterval(aktualizujHistorieGier, 5000);

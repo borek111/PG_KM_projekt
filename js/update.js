@@ -1,0 +1,1 @@
+setInterval(aktualizujHistorieGier, 5000);

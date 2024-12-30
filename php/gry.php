@@ -13,19 +13,19 @@
 require_once("config.php");
 
 if (isset($_POST["stawka"]) && isset($_POST["czyWygrana"]) && isset($_POST["kwota"]) && isset($_POST["nazwaGry"])) {
-    $stawka = $_POST["stawka"];
+    $stawka = (float) $_POST["stawka"];
     $czyWygrana = $_POST["czyWygrana"];
     $kwota = $_POST["kwota"];
     $nazwaGry = $_POST["nazwaGry"];
     
     $czyWygrana = ($czyWygrana == "true") ? 1 : 0;
 
-    $przegrana = ($czyWygrana == 1) ? 0 : $stawka;
+    $przegrana = (float)($czyWygrana == 1) ? 0 : $stawka;
 
     $query = "INSERT INTO gry (nazwaGry, wygrana, przegrana, czyWygrana) VALUES (?, ?, ?, ?)";
     if ($stmt = mysqli_prepare($conn, $query)) {
         // Powiązanie parametrów
-        mysqli_stmt_bind_param($stmt, "sdii", $nazwaGry, $kwota, $przegrana, $czyWygrana);
+        mysqli_stmt_bind_param($stmt, "sddi", $nazwaGry, $kwota, $przegrana, $czyWygrana);
         mysqli_stmt_execute($stmt);
         mysqli_stmt_close($stmt);
     } else {

@@ -24,6 +24,7 @@ var losINT;
 var losSTRING;
 var kolor;
 var komunikat;
+var czyWygrana=false;
 
 function getColor(value) {
     if (value === "0") return "zielony";
@@ -231,26 +232,44 @@ function sprawdzWyniki() {
     if(wybor == losSTRING) {
         wygrana = wybranaStawka * 35;
         wynik += `\nTrafiłeś liczbę!`;
+        czyWygrana=true;
     }
     // Trafienie koloru
     else if(wybor == kolor) {
         wygrana = wybranaStawka * 2;
         wynik += `\nTrafiłeś kolor!`;
+        czyWygrana=true;
     }
     // Trafienie parzystości
     else if(losINT % 2 == 0 && wybor == "parzysta") {
         wygrana = wybranaStawka * 2;
         wynik += `\nTrafiłeś parzystą liczbę!`;
+        czyWygrana=true;
     }
     // Trafienie nieparzystości
     else if(losINT % 2 != 0 && wybor == "nieparzysta") {
         wygrana = wybranaStawka * 2;
         wynik += `\nTrafiłeś nieparzystą liczbę!`;
+        czyWygrana=true;
     }
     // Brak trafienia
     else {
         wynik += `\nNie trafiłeś.`;  
+        czyWygrana=false;
     }
+
+    fetch('../php/gry.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `stawka=${wybranaStawka}&czyWygrana=${czyWygrana}&kwota=${wygrana}&nazwaGry=Ruletka`
+    })
+    .then(response => response.text())
+    .then(() => {
+        aktualizujHistorieGier();
+    })
+    .catch(error => console.error('Error:', error));
 
     if (wygrana > 0) {
         let srodki = getSrodki();
@@ -268,3 +287,5 @@ function sprawdzWyniki() {
     wybor = null;
 }
 
+
+setInterval(aktualizujHistorieGier, 5000);

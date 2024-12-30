@@ -43,6 +43,7 @@
             <p>Na początku wpisz odpowiednią stawkę w formularzu. Następnie wybierz, czy następna karta będzie wyższa lub równa od wylosowanej, czy niższa lub równa od wylosowanej. Ewentualnie możesz pominąć kartę. Możesz wypłacić środki w dowolnym momencie, klikając przycisk "Zwróć pieniądze". Jeśli błędnie obstawisz, przegrywasz.</p>
         </section>
         <footer>
+            <h2 class="h2Footer">Ostatnie gry na stronie</h2>
             <div class="divFooter" id="divFooter">
                 <?php 
                     include("../php/wyswietl.php");

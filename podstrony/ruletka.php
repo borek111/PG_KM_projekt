@@ -52,11 +52,12 @@
             </div>
         </section>
         <footer>
-        <div class="divFooter" id="divFooter">
-            <?php 
-                include("../php/wyswietl.php");
-            ?>
-        </div>
+            <h2 class="h2Footer">Ostatnie gry na stronie</h2>
+            <div class="divFooter" id="divFooter">
+                <?php 
+                    include("../php/wyswietl.php");
+                ?>
+            </div>
         </footer>
     </div>
     <script src="../js/srodki.js"></script>

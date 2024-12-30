@@ -50,6 +50,7 @@
             <div class="siatka" id="siatka"></div>
         </section>
         <footer>
+        <h2 class="h2Footer">Ostatnie gry na stronie</h2>
         <div class="divFooter" id="divFooter">
             <?php 
                 include("../php/wyswietl.php");

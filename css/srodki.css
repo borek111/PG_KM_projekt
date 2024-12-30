@@ -166,7 +166,7 @@ button:hover {
         color: white;
     }
     header {
-        position: sticky;
+        position: fixed;
         top: 0;
         left: 0;
         right: 0;
@@ -179,6 +179,7 @@ button:hover {
     nav {
         width: 100%;
         height: auto;
+        margin-top: 100px;
     }
 
     section {

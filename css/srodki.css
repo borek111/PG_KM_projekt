@@ -129,6 +129,7 @@ button:hover {
     display:flex;
     text-align: center;
     justify-content: center;
+    background-color: #1c2631;
 }
 .divGry1{
     margin:30px;

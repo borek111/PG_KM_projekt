@@ -141,11 +141,6 @@ td {
 .stawka{
     width: 100%;
 }
-
-.ziutek{
-    object-fit: cover;
-    width: 60%;
-}
 button{
     color:white;
     background-color: gray;
@@ -180,6 +175,7 @@ button:hover{
     display:flex;
     text-align: center;
     justify-content: center;
+    background-color: #1c2631;
 }
 .divGry1{
     margin:30px;
@@ -238,6 +234,7 @@ button:hover{
         width: 100%;
         height: auto;
         margin-bottom: 20px;
+        margin-top: 100px;
     }
 
     .gry {
@@ -282,7 +279,7 @@ button:hover{
         width: 100%;
     }
     header {
-        position: sticky;
+        position: fixed;
         top: 0;
         left: 0;
         right: 0;

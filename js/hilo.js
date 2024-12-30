@@ -211,3 +211,5 @@ function aktualizujHistorieGier() {
             console.error('Error: ', error);
         });
 }
+
+setInterval(aktualizujHistorieGier, 5000);

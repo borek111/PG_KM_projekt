@@ -294,6 +294,14 @@ button:hover {
         margin: 0 auto;
         min-height: auto;
     }
+    .kostka1_png>img{
+        transform: scale(0.5);
+        transform-origin: center;
+    }
+    .kostka2_png>img{
+        transform: scale(0.5);
+        transform-origin: center;
+    }
 
     form input, 
     form button {

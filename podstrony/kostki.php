@@ -14,7 +14,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    <script src="../js/komunikat.js"></script>
+    <script src="../js/info.js"></script>
     <link rel="stylesheet" href="../css/kostki.css">
 
 </head>
@@ -72,9 +72,11 @@
             </div>
         </section>
         <footer>
-            Ostatnie gry:
-            <div>
-                TO DO w php
+            <h2 class="h2Footer">Ostatnie gry na stronie</h2>
+            <div class="divFooter" id="divFooter">
+            <?php 
+                include("../php/wyswietl.php");
+            ?>
             </div>
         </footer>
     </div>

@@ -10,7 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    <script src="../js/komunikat.js"></script>
+    <script src="../js/info.js"></script>
+    <script src="../js/update.js"></script>
     <link rel="stylesheet" href="../css/srodki.css">
 </head>
 <body>
@@ -39,9 +40,11 @@
             </div>
         </section>
         <footer>
-            Ostatnie gry:
-            <div>
-                TO DO w php
+            <h2 class="h2Footer">Ostatnie gry na stronie</h2>
+            <div class="divFooter" id="divFooter">
+                <?php 
+                    include("../php/wyswietl.php");
+                ?>
             </div>
         </footer>
     </div>

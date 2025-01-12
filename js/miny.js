@@ -5,6 +5,7 @@ let odkrytePola = 0;
 let moznaMnozyc = false; 
 let liczbaMin = 0; 
 let kwotaZwrotuText = document.getElementById("kwota-zwrotu");
+var czyWygrana=false;
 
 // Funkcja uruchamiająca grę
 function startGry() {
@@ -70,8 +71,23 @@ function odkryjPole(index) {
         pole.style.backgroundPosition = "center";  
         kwotaZwrotuText.innerHTML = "przegrałeś";
         showToast("Boom! Trafiłeś na minę!", "linear-gradient(to right, #ff5f6d, #ffc3a0)");
+        czyWygrana=false;
         pokazMiny();
         koniecGry();
+        stawka = parseFloat(stawka);
+        kwotaZwrotu = parseFloat(kwotaZwrotu);
+        fetch('../php/gry.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `stawka=${stawka}&czyWygrana=${czyWygrana}&kwota=${kwotaZwrotu}&nazwaGry=Miny`
+        })
+        .then(response => response.text())
+        .then(() => {
+            aktualizujHistorieGier();
+        })
+        .catch(error => console.error('Error:', error));
       
     } else {
         pole.style.backgroundImage = "url('../grafika/miny/znaczek.png')";
@@ -85,6 +101,7 @@ function odkryjPole(index) {
         }
 
         if (moznaMnozyc) {
+            czyWygrana=true;
             const mnoznik = getMnoznik();
             kwotaZwrotu *= 1.08 * mnoznik;
             document.getElementById("kwota-zwrotu").textContent = kwotaZwrotu.toFixed(2);
@@ -99,13 +116,27 @@ function zwrotPieniedzy(event) {
         showToast("Gra nie została rozpoczęta. Nie możesz zwrócić pieniędzy.", "linear-gradient(to right, #ff5f6d, #ffc3a0)");
         return;
     }
-
+    czyWygrana=true;
     let srodki = getSrodki();
+    kwotaZwrotu=parseFloat(kwotaZwrotu);
     srodki += kwotaZwrotu;
     setSrodki(srodki); 
+    kwotaZwrotu=kwotaZwrotu.toFixed(2);
     updateSrodkiWyswietlane(); 
-    showToast(("Zwrócono pieniądze! Kwota: " + kwotaZwrotu.toFixed(2)), "linear-gradient(to right, #00b09b, #96c93d)");
+    showToast(("Zwrócono pieniądze! Kwota: " + kwotaZwrotu), "linear-gradient(to right, #00b09b, #96c93d)");
     koniecGry(); 
+    fetch('../php/gry.php', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `stawka=${stawka}&czyWygrana=${czyWygrana}&kwota=${kwotaZwrotu}&nazwaGry=Miny`
+    })
+    .then(response => response.text())
+    .then(() => {
+        aktualizujHistorieGier();
+    })
+    .catch(error => console.error('Error:', error));
 }
 
 function rozstawMiny(miny) {
@@ -151,7 +182,6 @@ function koniecGry() {
     graRozpoczeta = false; 
 
     document.querySelector('button[type="submit"]').disabled = false;
-
 }
 
 function dodajPola() {
@@ -166,3 +196,6 @@ function dodajPola() {
 }
 
 document.addEventListener("DOMContentLoaded", dodajPola);
+
+
+setInterval(aktualizujHistorieGier, 5000);

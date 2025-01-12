@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
-    <script src="../js/komunikat.js"></script>
+    <script src="../js/info.js"></script>
     <link rel="stylesheet" href="../css/ruletka.css">
     
 </head>
@@ -29,8 +29,8 @@
         </nav>
         <section>
         
-            <div class="ruletka">
-                <p id="czas_p">Czas: 10s</p>
+            <div class="ruletka_div">
+                <p id="czas_p" class="ruletka_p">Czas: 10s</p>
                 <img src="../grafika/ruletka/ruletka.gif" alt="" class="ruletka" id="ruletka_gif"> 
             </div>
             <div class="pola">
@@ -52,9 +52,11 @@
             </div>
         </section>
         <footer>
-            Ostatnie gry:
-            <div>
-                TO DO w php
+            <h2 class="h2Footer">Ostatnie gry na stronie</h2>
+            <div class="divFooter" id="divFooter">
+                <?php 
+                    include("../php/wyswietl.php");
+                ?>
             </div>
         </footer>
     </div>

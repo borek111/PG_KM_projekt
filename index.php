@@ -8,7 +8,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/index.css"> 
+    <script src="js/infoIndex.js"></script>
+    <script src="js/update.js"></script>
+  
 
 </head>
 <body>
@@ -46,9 +49,11 @@
         </section>
         
         <footer>
-            Ostatnie gry:
-            <div>
-                TO DO w php
+            <h2 class="h2Footer">Ostatnie gry na stronie</h2>
+            <div class="divFooter" id="divFooter">
+                <?php 
+                    include("php/wyswietl.php");
+                ?>
             </div>
         </footer>
     </div>
@@ -59,8 +64,5 @@
         }
     </script>
     <script src="js/srodki.js"></script>
-    <?php
-	    include 'php/config.php';
-    ?>
 </body>
 </html>

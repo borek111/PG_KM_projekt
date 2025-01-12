@@ -16,7 +16,7 @@
 
 header {
     width: 100%;
-    height: 15vh;
+    height: 10vh;
     background-color: #1c2631;
     color: white;
     position: relative;
@@ -77,9 +77,15 @@ section{
 }
 footer{
     background-color: #1c2631;
-    height:15vh;
+    height:20vh;
     width:100%;
     color: white;
+    text-align: center;
+}
+.h2Footer{
+    height: min-content;
+    text-align: center;
+    padding-top: 5px;
 }
 .stawka{
     width:30%;
@@ -177,11 +183,46 @@ input{
 button:hover {
     background-color: rgb(90, 90, 90);
 }
+
+.divFooter{
+    color:white;
+    display:flex;
+    text-align: center;
+    justify-content: center;
+    background-color: #1c2631;
+}
+.divGry1{
+    margin:30px;
+    width:10%;
+    margin-top:35px;
+    padding:20px;
+    height:100%;
+    background-color: #0f141a;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0px 0px 20px -10px rgba(247, 3, 3, 1);
+    -moz-box-shadow: inset 0px 0px 20px -10px rgba(247, 3, 3, 1);
+    box-shadow: inset 0px 0px 20px -10px rgba(247, 3, 3, 1);
+}
+.divGry2{
+    margin:30px;
+    width:10%;
+    margin-top:35px;
+    padding:20px;
+    height:100%;
+    background-color: #0f141a;
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0px 0px 20px -10px rgba(0, 255, 41, 1);
+    -moz-box-shadow: inset 0px 0px 20px -10px rgba(0, 255, 41, 1);
+    box-shadow: inset 0px 0px 20px -10px rgba(0, 255, 41, 1);
+}
+
+
 @media (max-width: 768px) {
     nav {
         width: 100%;
         height: auto;
         margin-bottom: 20px;
+        margin-top: 100px;
     }
 
     .gry {
@@ -253,12 +294,21 @@ button:hover {
         margin: 0 auto;
         min-height: auto;
     }
+    .kostka1_png>img{
+        transform: scale(0.5);
+        transform-origin: center;
+    }
+    .kostka2_png>img{
+        transform: scale(0.5);
+        transform-origin: center;
+    }
 
     form input, 
     form button {
         width: 80%;
         max-width: 300px;
         text-align: center;
+        z-index: 10;
     }
     .postaw{
         margin-top: -50px;
@@ -269,7 +319,7 @@ button:hover {
     }
 
     header {
-        position: sticky;
+        position: fixed;
         top: 0;
         left: 0;
         right: 0;
@@ -308,5 +358,26 @@ button:hover {
         margin-top: 120px;
         margin-bottom: 30px;
         width: 30%;
+    }
+    footer{
+        height: fit-content;
+    }
+    .divFooter{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 90%;
+        flex-direction: column;
+        margin: 0 auto;
+    }
+    .divGry1{
+        width: 100%;
+        padding: 10px;
+        margin: 7px 0;
+    }
+    .divGry2{
+        width: 100%;
+        padding: 10px;
+        margin: 7px 0;
     }
 }

@@ -16,7 +16,6 @@
     <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <script src="../js/info.js"></script>
     <link rel="stylesheet" href="../css/kostki.css">
-
 </head>
 <body>
     <div class="main">

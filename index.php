@@ -11,8 +11,6 @@
     <link rel="stylesheet" href="css/index.css"> 
     <script src="js/infoIndex.js"></script>
     <script src="js/update.js"></script>
-  
-
 </head>
 <body>
     <div class="main">

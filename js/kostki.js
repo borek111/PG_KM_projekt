@@ -96,11 +96,11 @@ function getRoznica() {
 function obliczMnoznik() {
     getRoznica();
     switch (roznica) {
-        case 0: mnoznik = 3; break;
-        case 1: mnoznik = 2.5; break;
+        case 0: mnoznik = 6; break;
+        case 1: mnoznik = 3; break;
         case 2: mnoznik = 2; break;
         case 3: mnoznik = 1.5; break;
-        case 4: mnoznik = 1.25; break;
+        case 4: mnoznik = 1.2; break;
         case 5: mnoznik = 1; break;
         default: mnoznik = 1;
  }

@@ -1,10 +1,7 @@
 function zmienSrodki(event) {
-    event.preventDefault(); // Zapobiega przeładowaniu strony po wysłaniu formularza
-    
-    // Pobieramy nową wartość środków z formularza
+    event.preventDefault(); 
     var noweSrodki = parseFloat(document.getElementById("nowe-srodki").value);
-
-    // Sprawdzamy, czy wartość jest poprawna
+    
     if (isNaN(noweSrodki) || noweSrodki <= 0) {
         showToast("Proszę podać poprawną wartość środków.", "linear-gradient(to right, #ff5f6d, #ffc3a0)");
         return;

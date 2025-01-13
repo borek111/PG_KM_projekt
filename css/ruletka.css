@@ -4,6 +4,10 @@
     margin: 0;
     font-family: "Lexend", sans-serif;
 }
+html{
+    background: rgb(51,60,64);
+    background: linear-gradient(90deg, rgba(51,60,64,1) 0%, rgba(41,48,51,1) 36%);
+}
 .main {
     width: 100%;
     display: flex;
@@ -200,6 +204,12 @@ button:hover{
     -webkit-box-shadow: inset 0px 0px 20px -10px rgba(0, 255, 41, 1);
     -moz-box-shadow: inset 0px 0px 20px -10px rgba(0, 255, 41, 1);
     box-shadow: inset 0px 0px 20px -10px rgba(0, 255, 41, 1);
+}
+@media (max-width: 1400px) {
+    .ruletka{
+        transform: scale(0.8);
+        transform-origin: left;
+    }
 }
 
 @media (max-width: 1250px) {

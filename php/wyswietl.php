@@ -17,13 +17,13 @@
            if($row["czyWygrana"]==1)
             {
                 echo "<div class='divGry2'>";
-                echo $row["nazwaGry"]." <br>wygrana: ".$row["wygrana"];
+                echo $row["nazwaGry"]." <br>wygrana: <br>".$row["wygrana"];
                 echo "</div>";              
             }
             else if($row["czyWygrana"]==0)
             {
                 echo "<div class='divGry1'>";
-                echo $row["nazwaGry"]." <br>przegrana: ".$row["przegrana"];
+                echo $row["nazwaGry"]." <br>przegrana: <br>".$row["przegrana"];
                 echo "</div>";
             }
        }

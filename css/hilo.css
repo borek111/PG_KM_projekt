@@ -304,6 +304,10 @@ button:hover {
         width: 90%;
         margin: 0 auto;
     }
+    .wynik{
+        margin-bottom: 5px;
+        margin-top: 5px;
+    }
 
     .hilo {
         margin: 0 auto;
